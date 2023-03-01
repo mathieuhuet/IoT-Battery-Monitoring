@@ -1,3 +1,5 @@
+import secret from '../secret';
+
 
 //GET REQUEST /weather
 const weatherController = {
@@ -7,7 +9,7 @@ const weatherController = {
         "Accept": "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)"
        }
-      let response = await fetch("https://api.openweathermap.org/data/3.0/onecall?lat=45.462425632505074&lon=-73.71702282440643&exclude=minutely,alerts&appid=5edc6b5d608c08e7fab5533c54425fa8", { 
+      let response = await fetch(secret.weatherAPI, { 
         method: "GET",
         headers: headersList
       });
