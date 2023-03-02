@@ -1,8 +1,8 @@
 const BASE_URL = 'http://localhost:3030';
 
-const apiServiceJWT = {};
+const loginServiceJWT = {};
 
-apiServiceJWT.register = (user) => {
+loginServiceJWT.register = (user) => {
   return fetch(`${BASE_URL}/register`, {
     method: 'POST',
     credentials: 'include',
@@ -14,7 +14,7 @@ apiServiceJWT.register = (user) => {
     .catch((err) => console.log(err));
 };
 
-apiServiceJWT.login = (user) => {
+loginServiceJWT.login = (user) => {
   return fetch(`${BASE_URL}/login`, {
     method: 'POST',
     credentials: 'include',
@@ -26,7 +26,7 @@ apiServiceJWT.login = (user) => {
     .catch((err) => console.log(err));
 };
 
-apiServiceJWT.profile = (accessToken) => {
+loginServiceJWT.profile = (accessToken) => {
   return fetch(`${BASE_URL}/me`, {
     method: 'GET',
     credentials: 'include',
@@ -40,7 +40,7 @@ apiServiceJWT.profile = (accessToken) => {
     .catch((err) => console.log(err));
 };
 
-apiServiceJWT.logout = (tokenName) => {
+loginServiceJWT.logout = (tokenName) => {
   // delete token from local storage here
   localStorage.removeItem(tokenName);
   // the following request should invalidate the token
@@ -57,4 +57,4 @@ apiServiceJWT.logout = (tokenName) => {
   //   .catch((err) => console.log(err));
 };
 
-export default apiServiceJWT;
+export default loginServiceJWT;

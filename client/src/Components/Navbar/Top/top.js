@@ -10,26 +10,26 @@ function Top({ isAuthenticated }) {
   if (isAuthenticated) {
     return (
       <div className="Top">
-        <div className="Home">
-          <Link to="/">
+        <Link to="/map">
+          <div className="Home">
             <AiOutlineHome />
-          </Link>
-        </div>
-        <div className="Devices">
-          <Link to="/devices">
+          </div>
+        </Link>
+        <Link to="/devices">
+          <div className="Devices">
             <VscListUnordered />
-          </Link>
-        </div>
-        <div className="Add">
-          <Link to="/add">
+          </div>
+        </Link>
+        <Link to="/add">
+          <div className="Add">
             <BiAddToQueue />
-          </Link>
-        </div>
-        <div className="Setting">
-          <Link to="/settings">
+          </div>
+        </Link>
+        <Link to="/settings">
+          <div className="Setting">
             <VscSettingsGear />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     );
   } else {

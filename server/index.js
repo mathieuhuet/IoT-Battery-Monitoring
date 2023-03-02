@@ -7,6 +7,7 @@ const app = new Koa();
 
 app.use(cors({
   origin: 'http://localhost:8080',
+  credentials: true,
 }));
 app.use(bodyParser());
 app.use(router.routes());

@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import './routing.css'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Register from './Register/register';
 import Login from './Login/login';
 import Logout from './Logout/logout';
@@ -9,7 +9,13 @@ import Task from './Task/task'
 import AddDevice from './AddDevice/addDevice'
 import Settings from './Settings/settings'
 
-const Routing = ({ setIsAuthenticated }) => {
+const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login')
+    }
+  }, [navigate, isAuthenticated])
   return (
     <section className="routing">
       <Routes>

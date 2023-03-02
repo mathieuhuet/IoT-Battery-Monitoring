@@ -49,6 +49,10 @@ button {
   border: solid 2px white;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .AddDevice-Form {
   display: flex;
   flex-direction: column;

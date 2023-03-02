@@ -59,21 +59,21 @@ const Register = (props) => {
         />
         <input
           type="password"
-          placeholder="supersecretthingy"
+          placeholder="password"
           name="password"
           value={state.password}
           onChange={handleChange}
         />
         <input
           type="text"
-          placeholder="Name"
+          placeholder="First Name"
           name="firstName"
           value={state.firstName}
           onChange={handleChange}
         />
         <input
           type="text"
-          placeholder="Nameson"
+          placeholder="Last Name"
           name="lastName"
           value={state.lastName}
           onChange={handleChange}

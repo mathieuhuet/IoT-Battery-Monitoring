@@ -34,7 +34,7 @@ const Login = (props) => {
       const { accessToken } = res;
       localStorage.setItem('accessToken', accessToken);
       props.setIsAuthenticated(true);
-      auth.login(() => navigate('/profile'));
+      auth.login(() => navigate('/'));
     }
   };
 

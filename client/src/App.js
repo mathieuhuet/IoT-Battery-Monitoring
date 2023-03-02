@@ -9,12 +9,17 @@ function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
 
-
   return (
     <div className="App">
       <Router>
-        <Navbar isAuthenticated={isAuthenticated} />
-        <Routing setIsAuthenticated={setIsAuthenticated} />
+        <Navbar 
+          isAuthenticated={isAuthenticated} 
+
+        />
+        <Routing 
+          setIsAuthenticated={setIsAuthenticated} 
+          isAuthenticated={isAuthenticated}
+        />
       </Router>
     </div>
   );

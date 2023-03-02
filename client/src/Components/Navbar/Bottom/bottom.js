@@ -7,11 +7,11 @@ function Bottom({ isAuthenticated }) {
   if (isAuthenticated) {
     return (
       <div className="Bottom">
-        <div className="Users">
-          <Link to='/logout'>
+        <Link to='/logout'>
+          <div className="Users">
             <BiUserCircle />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     );
   } else {
