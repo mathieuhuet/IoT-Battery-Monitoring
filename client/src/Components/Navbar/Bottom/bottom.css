@@ -1,0 +1,21 @@
+.Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Users {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  font-size: 36px;
+}
+
+.Users:hover {
+  background-color: rgb(55, 92, 55);
+  cursor: pointer;
+}

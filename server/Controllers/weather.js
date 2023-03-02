@@ -1,4 +1,4 @@
-import secret from '../secret';
+const secret = require('../secret');
 
 
 //GET REQUEST /weather

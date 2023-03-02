@@ -1,0 +1,70 @@
+.Top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  font-size: 36px;
+}
+
+.Home:hover {
+  background-color: rgb(55, 92, 55);
+  cursor: pointer;
+}
+
+.Devices {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  font-size: 36px;
+}
+
+.Devices:hover {
+  background-color: rgb(55, 92, 55);
+  cursor: pointer;
+}
+
+.Add {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  font-size: 36px;
+}
+
+.Add:hover {
+  background-color: rgb(55, 92, 55);
+  cursor: pointer;
+}
+
+.Setting {
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  font-size: 36px;
+}
+
+.Setting:hover {
+  background-color: rgb(55, 92, 55);
+  cursor: pointer;
+}

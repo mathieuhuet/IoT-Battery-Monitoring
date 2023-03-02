@@ -1,0 +1,31 @@
+.Overlay {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.WeatherButtonContainer {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.WeatherButton {
+  height: 100px;
+  width: 100px;
+}
+
+.InfoContainer {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.Info {
+  width: 90%;
+  position: absolute;
+}

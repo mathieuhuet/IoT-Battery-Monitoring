@@ -1,0 +1,17 @@
+.Weather {
+  background-color: rgb(94, 121, 143);
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 40px;
+  position: absolute;
+}
+
+.Weather:hover {
+  cursor: pointer;
+  background-color: rgb(71, 107, 138);
+}

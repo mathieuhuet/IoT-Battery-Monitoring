@@ -1,0 +1,59 @@
+.AddDevice {
+  margin: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.AddEMC {
+  border: 1px solid black;
+  margin: 5vh;
+  width: 40vh;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.AddPMV {
+  border: 1px solid black;
+  margin: 5vh;
+  width: 40vh;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+h3 {
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+}
+
+button {
+  background-color: orange;
+  color: white;
+  height: 30px;
+  width: 20vh;
+  margin: 20px;
+  border-radius: 5px;
+  border: solid 2px white;
+}
+
+.AddDevice-Form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  height: 24px;
+}
