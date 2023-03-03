@@ -26,7 +26,7 @@ function Main() {
     const center = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
 
     return (
-      <GoogleMap zoom={9} center={center} options={mapOptions} mapContainerClassName="MapContainer" >
+      <GoogleMap zoom={10} center={center} options={mapOptions} mapContainerClassName="MapContainer" >
         <Info />
         <MarkerF position={center}  icon={Battery}/>
       </GoogleMap>

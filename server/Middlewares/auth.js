@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('./../Models/user');
-const SECRET_KEY = process.env.SECRET_KEY || 'lalala this isnt secure';
+const SECRET_KEY = process.env.SECRET_KEY || 'this isnt secure';
 
 
 const authMiddleware = async (ctx, next) => {
@@ -11,14 +11,15 @@ const authMiddleware = async (ctx, next) => {
 
   try {
     // verify & decode token payload,
-    const { _id } = jwt.verify(token, SECRET_KEY);
+    const { id } = jwt.verify(token, SECRET_KEY);
     // attempt to find user object and set to req
-    const user = await User.findOne({ _id });
+    const user = await User.findOne({where: { id }});
     if (!user) return ctx.status = 401;
     ctx.request.user = user;
     next();
   } catch (error) {
     ctx.status = 401;
+    console.log(error);
   }
 };
 

@@ -7,7 +7,7 @@ function Bottom({ isAuthenticated }) {
   if (isAuthenticated) {
     return (
       <div className="Bottom">
-        <Link to='/logout'>
+        <Link to='/user'>
           <div className="Users">
             <BiUserCircle />
           </div>

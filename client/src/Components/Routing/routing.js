@@ -1,11 +1,10 @@
 import React,{ useEffect } from 'react';
 import './routing.css'
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Register from './Register/register';
 import Login from './Login/login';
-import Logout from './Logout/logout';
+import User from './User/user';
 import Main from './Main/main'
-import Task from './Task/task'
+import List from './List/list'
 import AddDevice from './AddDevice/addDevice'
 import Settings from './Settings/settings'
 
@@ -20,20 +19,16 @@ const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
     <section className="routing">
       <Routes>
         <Route
-          path="/register"
-          element={<Register setIsAuthenticated={setIsAuthenticated} />}
-        />
-        <Route
           path="/login"
           element={<Login setIsAuthenticated={setIsAuthenticated} />}
         />
         <Route
-          path="/logout"
-          element={<Logout setIsAuthenticated={setIsAuthenticated} />}
+          path="/user"
+          element={<User setIsAuthenticated={setIsAuthenticated} />}
         />
         <Route
           path="/devices"
-          element={<Task />}
+          element={<List />}
         />
         <Route 
           path="/add" 

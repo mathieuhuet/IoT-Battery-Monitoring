@@ -10,22 +10,46 @@
   border: 1px solid black;
   margin: 5vh;
   width: 40vh;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  background: #33883f;
+  background: -webkit-linear-gradient(#33883f, #2f7c33);
+  background: -o-linear-gradient(#33883f, #2f7c33);
+  background: -moz-linear-gradient(#33883f, #2f7c33);
+  background: linear-gradient(#33883f, #2f7c33);
+}
+
+.AddEMCForm {
+  height: 60vh;
 }
 
 .AddPMV {
   border: 1px solid black;
   margin: 5vh;
   width: 40vh;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  background: #33883f;
+  background: -webkit-linear-gradient(#33883f, #2f7c33);
+  background: -o-linear-gradient(#33883f, #2f7c33);
+  background: -moz-linear-gradient(#33883f, #2f7c33);
+  background: linear-gradient(#33883f, #2f7c33);
+}
+
+.AddPMVForm {
+  height: 60vh;
+}
+
+.Radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 h3 {

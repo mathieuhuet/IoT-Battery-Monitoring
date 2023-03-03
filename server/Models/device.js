@@ -35,6 +35,10 @@ const Device = sequelize.define('Devices', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  community: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: Date.now,

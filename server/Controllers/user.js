@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/user');
-const SECRET_KEY = process.env.SECRET_KEY || 'lalala this isnt secure';
+const SECRET_KEY = process.env.SECRET_KEY || 'this isnt secure';
 
 
 const create = async (ctx) => {
   const { email, password } = ctx.request.body;
-  const user = await User.findOne({ email: email });
+  const user = await User.findOne({ where: { email: email }});
   if (user) {
     ctx.status = 409;
     ctx.body = {
@@ -23,8 +23,8 @@ const create = async (ctx) => {
       ...ctx.request.body,
       password: hash,
     });
-    const { _id } = await newUser.save();
-    const accessToken = jwt.sign({ _id }, SECRET_KEY);
+    const { id } = await newUser.save();
+    const accessToken = jwt.sign({ id }, SECRET_KEY);
     ctx.status = 201;
     ctx.body = { error: false, message: 'User created successfully', data: {accessToken}}
   } catch (error) {
@@ -50,10 +50,10 @@ const create = async (ctx) => {
 const login = async (ctx) => {
   const { email, password } = ctx.request.body;
   try {
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ where: { email: email } });
     const validatedPass = await bcrypt.compare(password, user.password);
     if (!validatedPass) throw new Error('Wrong Password (or username)');
-    const accessToken = jwt.sign({ _id: user._id }, SECRET_KEY);
+    const accessToken = jwt.sign({ id: user.id }, SECRET_KEY);
     ctx.status = 200;
     ctx.body = { error: false, message: 'User loged in successfully', data: {accessToken}}
   } catch (error) {
@@ -68,11 +68,10 @@ const login = async (ctx) => {
 
 const profile = async (ctx) => {
   try {
-    const { _id, firstName, lastName } = ctx.request.user;
-    const user = { _id, firstName, lastName };
+    const { id, firstName, lastName } = ctx.request.user;
+    const user = { id, firstName, lastName };
     ctx.status = 200;
     ctx.body = { error: false, message: 'User data loaded successfully', data: user}
-
   } catch {
     ctx.status = 504;
     ctx.body = {

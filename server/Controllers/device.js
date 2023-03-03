@@ -5,14 +5,14 @@ const devicesController = {
   //POST REQUEST /device
   postDevice: async (ctx) => {
     try {
-      const { content } = ctx.request.body;
-      if (!content) throw new Error('Content is required but not provided');
-      const newDevice = await Devices.create({ content });
+      const { data } = ctx.request.body;
+      if (!data) throw new Error('Data is required but not provided');
+      const newDevice = await Devices.create(data);
       ctx.status = 201;
       ctx.body = { error: false, message: 'Device created successfully', data: newDevice};
     } catch (error) {
       console.log('Error at Devices controller (POST)', error);
-      if (error.message === 'Content is required but not provided') {
+      if (error.message === 'Data is required but not provided') {
         ctx.status = 400;
         ctx.body = {
           error: true,
@@ -34,9 +34,6 @@ const devicesController = {
   getAllDevices: async (ctx) => {
     try {
       const devices = await Devices.findAll();
-      // if (!topics.length) {
-      //   throw new Error ('No Devices were found');
-      // }
       ctx.status = 200;
       ctx.body = {
         error: false,

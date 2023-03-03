@@ -10,7 +10,7 @@ function Top({ isAuthenticated }) {
   if (isAuthenticated) {
     return (
       <div className="Top">
-        <Link to="/map">
+        <Link to="/">
           <div className="Home">
             <AiOutlineHome />
           </div>
