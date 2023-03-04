@@ -4,9 +4,7 @@ function Spinner() {
 
 
   return (
-    <div className="Spinner">
-      Loading baby.
-    </div>
+      <div className='spinner'></div>
   );
 }
 

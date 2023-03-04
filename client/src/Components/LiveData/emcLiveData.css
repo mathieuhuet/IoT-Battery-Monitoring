@@ -1,0 +1,61 @@
+.EMCDeviceInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.EMCDataContainer {
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  width: 290px;
+  align-items: center;
+}
+
+.EMCDesc {
+  text-shadow: 2px 2px #000000;
+}
+
+.EMCVoltage {
+  font-weight: bold;
+  background-color: black;
+  color: rgb(255, 73, 173);
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.EMCTemperature {
+  font-weight: bold;
+  background-color: black;
+  color: rgb(110, 165, 8);
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.EMCLoad {
+  font-weight: bold;
+  background-color: black;
+  color: rgb(47, 179, 255);
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}
+
+.EMCCharge {
+  font-weight: bold;
+  background-color: black;
+  color: rgb(255, 242, 54);
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+}

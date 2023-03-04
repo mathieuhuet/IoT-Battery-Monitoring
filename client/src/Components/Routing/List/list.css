@@ -7,18 +7,44 @@
 .EMCList {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  align-items: center;
 }
 
 .PMVList {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  align-items: center;
+}
+
+.PMVTitle {
+  font-weight: bold;
+  color: black;
+  font-size: 36px;
+}
+
+.EMCTitle {
+  font-weight: bold;
+  color: black;
+  font-size: 36px;
+}
+
+.DeviceTitle {
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d16218;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 7px;
 }
 
 .EMCDevice {
-  height: 100px;
-  border: 1px solid black;
+  height: 220px;
+  width: 600px;
+  border: 2px solid rgb(2, 68, 7);
+  border-radius: 20px;
   padding: 5px;
   margin: 20px;
   background: #33883f;
@@ -32,8 +58,10 @@
 }
 
 .PMVDevice {
-  height: 100px;
-  border: 1px solid black;
+  width: 600px;
+  height: 180px;
+  border: 2px solid rgb(2, 68, 7);
+  border-radius: 20px;
   padding: 5px;
   margin: 20px;
   background: #33883f;

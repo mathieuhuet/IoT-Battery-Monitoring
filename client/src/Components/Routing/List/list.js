@@ -2,8 +2,8 @@ import './list.css';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import EMCLiveData from './LiveData/emcLiveData';
-import PMVLiveData from './LiveData/pmvLiveData';
+import EMCLiveData from '../../LiveData/emcLiveData'
+import PMVLiveData from '../../LiveData/pmvLiveData';
 
 
 
@@ -32,11 +32,11 @@ function List () {
   return (
     <div className="List">
       <div className='EMCList'>
-        <h1>EMC</h1>
+        <div className='EMCTitle'>EMC</div>
         {emc.map((device) => 
           <div className='EMCDevice' key={device.id}>
             <Link to={'/device/' + device.id}>
-              <b>{device.name}</b>
+              <div className='DeviceTitle'>{device.name}</div>
             </Link>
             <EMCLiveData 
               id={device.id}
@@ -45,10 +45,12 @@ function List () {
         )}
       </div>
       <div className='PMVList'>
-        <h1>PMV</h1>
+        <div className='PMVTitle'>PMV</div>
         {pmv.map((device) =>
           <div className='PMVDevice' key={device.id}>
-            <b>{device.name}</b>
+            <Link to={'/device/' + device.id}>
+              <div className='DeviceTitle'>{device.name}</div>
+            </Link>
             <PMVLiveData 
               id={device.id}
             />

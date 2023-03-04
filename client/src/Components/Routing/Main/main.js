@@ -7,8 +7,8 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api"
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import { EMCService } from '../../../Services/emcService';
 import { PMVService } from '../../../Services/pmvService';
-import EMCDeviceInfo from './DeviceInfo/emcDeviceInfo';
-import PMVDeviceInfo from './DeviceInfo/pmvDeviceInfo';
+import EMCLiveData from '../../LiveData/emcLiveData';
+import PMVLiveData from '../../LiveData/pmvLiveData';
 import Battery0 from '../../../Assets/battery0.png'
 import Battery1 from '../../../Assets/battery1.png'
 import Battery2 from '../../../Assets/battery2.png'
@@ -116,7 +116,7 @@ function Main() {
           return (
             <div className='DeviceInfo'>
               <div className='DeviceInfoData'>
-                <PMVDeviceInfo
+                <PMVLiveData
                   id={deviceInfo[0]}
                 />
               </div>
@@ -133,7 +133,7 @@ function Main() {
         } else {
           return (
             <div className='DeviceInfo'>
-                <EMCDeviceInfo
+                <EMCLiveData
                   id={deviceInfo[0]}
                 />
               <div className='DeviceInfoButtons'>
@@ -153,10 +153,8 @@ function Main() {
     return (
       <GoogleMap zoom={11} center={center} options={mapOptions} mapContainerClassName="MapContainer" >
         <Info />
-        {console.log(devices, 'ALLO MATHIEU ENCORE')}
         {devices.map((device) => 
           <div key={device.id}>
-            {console.log()}
             <MarkerF 
               position={{lat: device.lat, lng: device.lng}} 
               // icon={() => getBatteryIcon(device.id)}

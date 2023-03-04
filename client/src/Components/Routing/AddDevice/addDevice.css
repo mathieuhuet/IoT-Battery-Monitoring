@@ -7,7 +7,8 @@
 }
 
 .AddEMC {
-  border: 1px solid black;
+  border: 3px solid black;
+  border-radius: 25px;
   margin: 5vh;
   width: 40vh;
   height: 70vh;
@@ -27,7 +28,8 @@
 }
 
 .AddPMV {
-  border: 1px solid black;
+  border: 3px solid black;
+  border-radius: 25px;
   margin: 5vh;
   width: 40vh;
   height: 70vh;
@@ -64,7 +66,9 @@ form {
 }
 
 button {
-  background-color: orange;
+  background-color: rgb(163, 106, 0);
+  font-weight: bold;
+  text-shadow: 2px 2px #8a0606;
   color: white;
   height: 30px;
   width: 20vh;
