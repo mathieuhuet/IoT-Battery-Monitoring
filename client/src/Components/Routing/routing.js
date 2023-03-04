@@ -6,6 +6,7 @@ import User from './User/user';
 import Main from './Main/main'
 import List from './List/list'
 import AddDevice from './AddDevice/addDevice'
+import DeviceDetails from './DeviceDetails/deviceDetails';
 import Settings from './Settings/settings'
 
 const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -37,6 +38,10 @@ const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
         <Route 
           path="/settings" 
           element={<Settings />} 
+        />
+        <Route 
+          path="/device/:id" 
+          element={<DeviceDetails />} 
         />
         <Route 
           path="/" 

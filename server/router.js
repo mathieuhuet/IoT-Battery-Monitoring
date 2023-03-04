@@ -10,6 +10,7 @@ const authMiddleware = require('./Middlewares/auth');
 
 router.get('/weather', weather.getWeather);
 
+router.get('/device/:id', device.getSingleDevice)
 router.get('/device', device.getAllDevices);
 router.post('/device', device.postDevice);
 router.put('/device/:id', device.updateDevice);

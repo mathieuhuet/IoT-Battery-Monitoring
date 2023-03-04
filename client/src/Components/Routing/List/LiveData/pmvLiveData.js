@@ -11,8 +11,16 @@ function PMVLiveData({ id }) {
     })
   }, [id]);
   return (
-    <div className="pmvLiveData">
-      {console.log(pmvData, 'LIVEDATA')}
+    <div className="PMVLiveData">
+      <div className='LiveDataContainer'>
+        {'Battery voltage : ' + (pmvData && pmvData.voltage ? pmvData.voltage + 'V' : 'No Data')}
+      </div>
+      <div className='LiveDataContainer'>
+        {'Photocell Intensity : ' + (pmvData && pmvData.photocell ? pmvData.photocell : 'No Data')}
+      </div>
+      <div className='LiveDataContainer'>
+        {'Message displayed : ' + (pmvData && pmvData.message ? pmvData.message : 'No Data')}
+      </div>
     </div>
   );
 }

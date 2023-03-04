@@ -1,6 +1,7 @@
 import './list.css';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import EMCLiveData from './LiveData/emcLiveData';
 import PMVLiveData from './LiveData/pmvLiveData';
 
@@ -31,12 +32,12 @@ function List () {
   return (
     <div className="List">
       <div className='EMCList'>
+        <h1>EMC</h1>
         {emc.map((device) => 
-          <div className='DeviceList' key={device.id}>
-            {device.name}
-            <br />
-            {device.ip + ':'}{device.port}
-            <br />
+          <div className='EMCDevice' key={device.id}>
+            <Link to={'/device/' + device.id}>
+              <b>{device.name}</b>
+            </Link>
             <EMCLiveData 
               id={device.id}
             />
@@ -44,12 +45,10 @@ function List () {
         )}
       </div>
       <div className='PMVList'>
+        <h1>PMV</h1>
         {pmv.map((device) =>
-          <div className='DeviceList' key={device.id}>
-            {device.name}
-            <br />
-            {device.ip + ':'}{device.port}
-            <br />
+          <div className='PMVDevice' key={device.id}>
+            <b>{device.name}</b>
             <PMVLiveData 
               id={device.id}
             />

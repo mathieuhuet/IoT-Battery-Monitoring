@@ -12,7 +12,7 @@ export const EMCService = {
       }
       return response.data;
     } catch (error) {
-      console.log(`Error in getLiveData service function : ${error}`);
+      console.log(`Error in getLiveData service function : ${error}`)
     }
   },
 }

@@ -51,6 +51,37 @@ const devicesController = {
     }
   },
 
+  getSingleDevice: async (ctx) => {
+    try {
+      const { id } = ctx.params;
+      const device = await Devices.findByPk(id);
+      if (!device) throw new Error('Device not found');
+      ctx.status = 200;
+      ctx.body = {
+        error: false,
+        message: 'Devices retrieved succesfully',
+        data: device,
+      }
+    } catch (error) {
+      console.log('ERROR AT getAllDevices Controller : '. error)
+      if (error.message === 'Device not found') {
+        ctx.status = 404;
+        ctx.body = {
+          error: true,
+          message: 'Cant find device',
+          data: null,
+        }
+      } else {
+        ctx.status = 500;
+        ctx.body = {
+          error: true,
+          message: 'Internal Server error',
+          data: null,
+        }
+      }
+    }
+  },
+
   //PUT REQUEST aka UPDATE /device/:id/
   updateDevice: async (ctx) => {
     try {
@@ -85,7 +116,7 @@ const devicesController = {
         ctx.status = 500;
         ctx.body = {
           error: true,
-          message: 'Internal error',
+          message: 'Internal Server error',
           data: null,
         }
       }
@@ -119,7 +150,7 @@ const devicesController = {
         ctx.status = 500;
         ctx.body = {
           error: true,
-          message: 'Internal error',
+          message: 'Internal Server error',
           data: null,
         }
       }

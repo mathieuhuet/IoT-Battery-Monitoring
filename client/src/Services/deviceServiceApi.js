@@ -16,6 +16,20 @@ export const DeviceService = {
     }
   },
 
+    //Get Request
+    getSingleDevice: async (id) => {
+      try {
+        const device = await fetch(`${URL}/${id}`);
+        const response = await device.json();
+        if (response.error) {
+          throw new Error(response.message);
+        }
+        return response.data;
+      } catch (error) {
+        console.log(`Error in getSingleDevice service function : ${error}`);
+      }
+    },
+
   //Post Request
   postDevice: async (data) => {
     try {

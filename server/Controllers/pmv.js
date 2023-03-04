@@ -83,9 +83,9 @@ async function getSNMP (ip, port, community) {
         }
       }
       session.close ();
-      pmvData.voltage = obj['1.3.6.1.4.1.1206.4.2.3.9.8.1.0'];
+      pmvData.voltage = obj['1.3.6.1.4.1.1206.4.2.3.9.8.1.0'].slice(0, -2) + '.' + obj['1.3.6.1.4.1.1206.4.2.3.9.8.1.0'].slice(-2);
       pmvData.photocell = obj['1.3.6.1.4.1.1206.4.2.3.7.3.0'];
-      pmvData.message = obj['1.3.6.1.4.1.1206.4.2.3.5.8.1.3.3.1']
+      pmvData.message = obj['1.3.6.1.4.1.1206.4.2.3.5.8.1.3.3.1'].slice(28);
       return resolve(pmvData)
     })
     session.trap (snmp.TrapType.LinkDown, function (error) {
