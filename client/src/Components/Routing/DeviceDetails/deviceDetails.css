@@ -4,7 +4,9 @@
 }
 
 .DeviceDetailsLeft {
+  border-radius: 15px;
   margin: 40px;
+  padding: 30px;
   display: flex;
   background: #33883f;
   background: -webkit-linear-gradient(#33883f, #2f7c33);
@@ -19,6 +21,8 @@
 }
 
 .DeviceDetailsInfo {
+  border-radius: 15px;
+  padding: 30px;
   margin: 40px;
   background: #33883f;
   background: -webkit-linear-gradient(#33883f, #2f7c33);
@@ -28,6 +32,8 @@
 }
 
 .DeviceDetailsData {
+  border-radius: 15px;
+  padding: 30px;
   margin: 40px;
   background: #33883f;
   background: -webkit-linear-gradient(#33883f, #2f7c33);

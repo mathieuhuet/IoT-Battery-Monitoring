@@ -38,29 +38,33 @@ function List () {
   return (
     <div className="List">
       <div className='EMCList'>
-        <div className='EMCTitle'><img src={Battery1} /><img src={Battery4} /><img src={Battery2} /><img src={Battery0} /><img src={Battery3} />EMC<img src={Battery1} /><img src={Battery4} /><img src={Battery2} /><img src={Battery0} /><img src={Battery3} /></div>
+        <div className='EMCTitle'><img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/>EMC<img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/></div>
         {emc.map((device) => 
+          <div key={device.id}>
           <Link to={'/device/' + device.id}>
-            <div className='EMCDevice' key={device.id}>
+            <div className='EMCDevice' >
               <div className='DeviceTitle'>{device.name}</div>
               <EMCLiveData 
                 id={device.id}
               />
             </div>
           </Link>
+          </div>
         )}
       </div>
       <div className='PMVList'>
-        <div className='PMVTitle'><img src={PMV} /> PMV <img src={PMV} /></div>
+        <div className='PMVTitle'><img src={PMV} alt=''/> PMV <img src={PMV} alt=''/></div>
         {pmv.map((device) =>
-          <Link to={'/device/' + device.id}>
-            <div className='PMVDevice' key={device.id}>
-              <div className='DeviceTitle'>{device.name}</div>
-              <PMVLiveData 
-                id={device.id}
-              />
-            </div>
-          </Link>
+          <div key={device.id}>
+            <Link to={'/device/' + device.id}>
+              <div className='PMVDevice'>
+                <div className='DeviceTitle'>{device.name}</div>
+                <PMVLiveData 
+                  id={device.id}
+                />
+              </div>
+            </Link>
+          </div>
         )}
       </div>
     </div>

@@ -10,11 +10,13 @@ function DeviceDetails() {
   const [device, setDevice] = useState([]);
 
   useEffect(() => {
-    DeviceService.getSingleDevice(id)
-    .then(data => {
-      setDevice(data);
-    })
-  }, []);
+    if (id) {
+      DeviceService.getSingleDevice(id)
+      .then(data => {
+        setDevice(data);
+      })
+    }
+  }, [id]);
   return (
     <div className='DeviceDetails'>
       <div className="DeviceDetailsLeft">

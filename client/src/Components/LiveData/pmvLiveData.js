@@ -6,10 +6,12 @@ import Spinner from '../../Spinner';
 function PMVLiveData({ id }) {
   const [pmvData, setPMVData] = useState([])
   useEffect(() => {
-    PMVService.getLiveData(id)
-    .then(data => {
-      setPMVData(data);
-    })
+    if (id) {
+      PMVService.getLiveData(id)
+      .then(data => {
+        setPMVData(data);
+      })
+    }
   }, [id]);
   return (
     <div>

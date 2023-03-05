@@ -6,10 +6,12 @@ import Spinner from '../../Spinner';
 function EMCLiveData({ id }) {
   const [emcData, setEMCData] = useState([])
   useEffect(() => {
-    EMCService.getLiveData(id)
-    .then(data => {
-      setEMCData(data);
-    })
+    if (id) {
+      EMCService.getLiveData(id)
+      .then(data => {
+        setEMCData(data);
+      })
+    }
   }, [id]);
   return (
     <div>

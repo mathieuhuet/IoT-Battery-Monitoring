@@ -330,7 +330,7 @@ function AddDevice() {
           </label>
         </div>
         <div className='formBottomPMV'>
-          <img src={PMV} />
+          <img src={PMV} alt=''/>
         </div>
         <button type='submit' className='Submit-PMV' > Create new PMV </button>
       </form>
