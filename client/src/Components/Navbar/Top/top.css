@@ -11,14 +11,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 99px;
   width: 100px;
   font-size: 36px;
 }
 
 .Home:hover {
-  background-color: rgb(55, 92, 55);
+  background-color: rgb(27, 65, 27);
   cursor: pointer;
+}
+
+.Home:active {
+  height: 94px;
+  width: 94px;
+  border: 3px solid black;
 }
 
 .Devices {
@@ -27,14 +33,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 99px;
   width: 100px;
   font-size: 36px;
 }
 
 .Devices:hover {
-  background-color: rgb(55, 92, 55);
+  background-color: rgb(27, 65, 27);
   cursor: pointer;
+}
+
+.Devices:active {
+  height: 94px;
+  width: 94px;
+  border: 3px solid black;
 }
 
 .Add {
@@ -43,14 +55,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 99px;
   width: 100px;
   font-size: 36px;
 }
 
 .Add:hover {
-  background-color: rgb(55, 92, 55);
+  background-color: rgb(27, 65, 27);
   cursor: pointer;
+}
+
+.Add:active {
+  height: 94px;
+  width: 94px;
+  border: 3px solid black;
 }
 
 .Setting {
@@ -59,12 +77,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 99px;
   width: 100px;
   font-size: 36px;
 }
 
 .Setting:hover {
-  background-color: rgb(55, 92, 55);
+  background-color: rgb(27, 65, 27);
   cursor: pointer;
+}
+
+.Setting:active {
+  height: 94px;
+  width: 94px;
+  border: 3px solid black;
 }

@@ -1,4 +1,37 @@
 .DeviceDetails {
-  margin: 40px;
+  display: flex;
   
+}
+
+.DeviceDetailsLeft {
+  margin: 40px;
+  display: flex;
+  background: #33883f;
+  background: -webkit-linear-gradient(#33883f, #2f7c33);
+  background: -o-linear-gradient(#33883f, #2f7c33);
+  background: -moz-linear-gradient(#33883f, #2f7c33);
+  background: linear-gradient(#33883f, #2f7c33);
+}
+
+.DeviceDetailsRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.DeviceDetailsInfo {
+  margin: 40px;
+  background: #33883f;
+  background: -webkit-linear-gradient(#33883f, #2f7c33);
+  background: -o-linear-gradient(#33883f, #2f7c33);
+  background: -moz-linear-gradient(#33883f, #2f7c33);
+  background: linear-gradient(#33883f, #2f7c33);
+}
+
+.DeviceDetailsData {
+  margin: 40px;
+  background: #33883f;
+  background: -webkit-linear-gradient(#33883f, #2f7c33);
+  background: -o-linear-gradient(#33883f, #2f7c33);
+  background: -moz-linear-gradient(#33883f, #2f7c33);
+  background: linear-gradient(#33883f, #2f7c33);
 }

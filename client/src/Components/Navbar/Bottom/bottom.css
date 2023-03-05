@@ -3,19 +3,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .Users {
-  height: 100px;
+  height: 99px;
   width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-top: 1px solid black;
   font-size: 36px;
+  color: black;
 }
 
 .Users:hover {
   background-color: rgb(55, 92, 55);
   cursor: pointer;
+}
+
+.Users:active {
+  height: 94px;
+  width: 94px;
+  border: 3px solid black;
 }

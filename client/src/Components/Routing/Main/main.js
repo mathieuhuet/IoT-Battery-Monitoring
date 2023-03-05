@@ -104,10 +104,8 @@ function Main() {
       })
     }, []);
 
-
-    const [deviceInfo, setDeviceInfo] = useState([0, '']);
-    const center = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
-
+        //DeviceInfo ([ID , BATTERYTYPE, NAME])
+    const [deviceInfo, setDeviceInfo] = useState([0, '', '']);
     function DeviceInfo () {
       if (!deviceInfo[0]) {
         return
@@ -115,13 +113,14 @@ function Main() {
         if (deviceInfo[1] === 'pmv') {
           return (
             <div className='DeviceInfo'>
-              <div className='DeviceInfoData'>
-                <PMVLiveData
-                  id={deviceInfo[0]}
-                />
+              <div className='DeviceNameInfo'>
+                {deviceInfo[2]}
               </div>
+              <PMVLiveData
+                id={deviceInfo[0]}
+              />
               <div className='DeviceInfoButtons'>
-                <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, ''])}>
+                <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, '', ''])}>
                   Close
                 </div>
                 <div className='DeviceInfoButton' onClick={() => navigate(`/device/${deviceInfo[0]}`)}>
@@ -133,11 +132,14 @@ function Main() {
         } else {
           return (
             <div className='DeviceInfo'>
-                <EMCLiveData
-                  id={deviceInfo[0]}
-                />
+              <div className='DeviceNameInfo'>
+                {deviceInfo[2]}
+              </div>
+              <EMCLiveData
+                id={deviceInfo[0]}
+              />
               <div className='DeviceInfoButtons'>
-                <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, ''])}>
+                <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, '', ''])}>
                   Close
                 </div>
                 <div className='DeviceInfoButton' onClick={() => navigate(`/device/${deviceInfo[0]}`)}>
@@ -149,7 +151,7 @@ function Main() {
         }
       }
     }
-
+    const center = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
     return (
       <GoogleMap zoom={11} center={center} options={mapOptions} mapContainerClassName="MapContainer" >
         <Info />
@@ -159,7 +161,7 @@ function Main() {
               position={{lat: device.lat, lng: device.lng}} 
               // icon={() => getBatteryIcon(device.id)}
               icon={device.icon === 0 ? PMV : device.icon === 1 ? Battery1 : device.icon === 2 ? Battery2 : device.icon === 3 ? Battery3 : device.icon === 4 ? Battery4 : Battery0} 
-              onClick={() => setDeviceInfo([device.id, device.battery])}
+              onClick={() => setDeviceInfo([device.id, device.battery, device.name])}
             />
           </div> 
         )}

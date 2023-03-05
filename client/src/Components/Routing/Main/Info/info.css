@@ -27,6 +27,8 @@
 }
 
 .Info {
-  width: 90%;
+  width: 100%;
   position: absolute;
+  display: flex;
+  justify-content: center;
 }

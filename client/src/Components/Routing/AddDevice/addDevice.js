@@ -1,6 +1,7 @@
 import './addDevice.css';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import loginServiceJWT from '../../../Services/loginServiceJWT';
+import PMV from '../../../Assets/pmvicon.png'
 
 
 function AddDevice() {
@@ -97,6 +98,10 @@ function AddDevice() {
     }
     if (lat.length < 5 || lng.length < 5) {
       alert('Latitude or Longitude is too short.');
+      return;
+    }
+    if (name.length > 26) {
+      alert('Name of device too long (max: 26 characters)')
       return;
     }
     if (lat.length >  18 || lng.length > 18) {
@@ -324,8 +329,8 @@ function AddDevice() {
             />
           </label>
         </div>
-        <div className='formBottom'>
-          <br />
+        <div className='formBottomPMV'>
+          <img src={PMV} />
         </div>
         <button type='submit' className='Submit-PMV' > Create new PMV </button>
       </form>

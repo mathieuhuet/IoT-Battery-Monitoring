@@ -11,9 +11,11 @@
 }
 
 .PMVList {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-left: 1px solid black;
 }
 
 .PMVTitle {
@@ -43,7 +45,7 @@
   height: 220px;
   width: 600px;
   border: 2px solid rgb(2, 68, 7);
-  box-shadow: 4px 4px black;
+  box-shadow: 5px 5px black;
   border-radius: 20px;
   padding: 5px;
   margin: 20px;
@@ -58,6 +60,7 @@
 }
 
 .EMCDevice:active {
+  width: 597px;
   box-shadow: 1px 2px black;
 }
 
@@ -73,7 +76,7 @@
   width: 600px;
   height: 180px;
   border: 2px solid rgb(2, 68, 7);
-  box-shadow: 4px 4px black;
+  box-shadow: 5px 5px black;
   border-radius: 20px;
   padding: 5px;
   margin: 20px;
@@ -88,6 +91,7 @@
 }
 
 .PMVDevice:active {
+  width: 597px;
   box-shadow: 1px 2px black;
 }
 

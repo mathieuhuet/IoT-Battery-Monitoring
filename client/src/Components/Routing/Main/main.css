@@ -30,6 +30,17 @@
   box-shadow: 2px 2px black;
 }
 
+.DeviceNameInfo {
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 3px;
+  text-shadow: 2px 2px black;
+  background-color: blueviolet;
+  border-radius: 8px;
+  box-shadow: 1px 1px black;
+}
+
 .DeviceInfoButtons {
   display: flex;
 }
@@ -51,6 +62,7 @@
 
 .DeviceInfoButton:hover {
   cursor: pointer;
+  background-color: rgb(246, 255, 127);
 }
 
 .DeviceInfoButton:active {

@@ -40,7 +40,7 @@ async function getSNMP (ip, port, community) {
     const options = {
       port: port,
       retries: 1,
-      timeout: 3000,
+      timeout: 5000,
       backoff: 1.0,
       transport: "udp4",
       trapPort: 162,
