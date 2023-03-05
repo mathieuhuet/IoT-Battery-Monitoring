@@ -3,10 +3,11 @@
 }
 
 .Profile {
-  border: 3px solid black;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   color: white;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 1px 1px #000000;
   margin: 5vh;
   width: 40vh;
   height: 40vh;
@@ -22,10 +23,11 @@
 }
 
 .Logout {
-  border: 3px solid black;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   color: white;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 1px 1px #000000;
   margin: 5vh;
   width: 40vh;
   height: 40vh;
@@ -38,4 +40,25 @@
   background: -o-linear-gradient(#33883f, #2f7c33);
   background: -moz-linear-gradient(#33883f, #2f7c33);
   background: linear-gradient(#33883f, #2f7c33);
+}
+
+.confirm-btn {
+  background-color: rgb(163, 106, 0);
+  font-weight: bold;
+  text-shadow: 1px 1px #000000;
+  color: white;
+  height: 30px;
+  width: 20vh;
+  margin: 20px;
+  border-radius: 5px;
+  border: solid 2px white;
+  box-shadow: 2px 2px black;
+}
+
+.confirm-btn:hover {
+  background-color: #2f7c33;
+}
+
+.confirm-btn:active {
+  box-shadow: 1px 1px black;
 }

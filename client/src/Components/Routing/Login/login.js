@@ -63,8 +63,13 @@ const Login = (props) => {
   const handleSubmitRegister = async (e) => {
     // Check the client-session to see how to handle redirects
     e.preventDefault();
+    if (e.target.password !== e.target.passwordRepeat) {
+      alert("Passwords didn't matched, try again.")
+      return;
+    }
     const { email, password, firstName, lastName } = stateRegister;
     const user = { email, password, firstName, lastName };
+
     const res = await loginServiceJWT.register(user);
 
     if (res.error) {
@@ -93,13 +98,15 @@ const Login = (props) => {
         <h3>Please LogIn to access this website.</h3>
         <form className="LoginForm" onSubmit={handleSubmitLogin}>
           <div className='LoginInput'>
+            <label>Email</label>
             <input
               type="text"
-              placeholder="name@mail.com"
+              placeholder="myemail@mail.com"
               name="email"
               value={stateLogin.email}
               onChange={handleChangeLogin}
             />
+            <label>Password</label>
             <input
               type="password"
               placeholder="password"
@@ -119,13 +126,16 @@ const Login = (props) => {
           <h3>You can create one by filling this form.</h3>
         </div>
         <form className="Registerform" onSubmit={handleSubmitRegister}>
+          <label>Email</label>
           <input
             type="text"
-            placeholder="name@mail.com"
+            placeholder="myemail@mail.com"
             name="email"
             value={stateRegister.email}
             onChange={handleChangeRegister}
           />
+          <br />
+          <label>Password</label>
           <input
             type="password"
             placeholder="password"
@@ -133,16 +143,27 @@ const Login = (props) => {
             value={stateRegister.password}
             onChange={handleChangeRegister}
           />
+          <label>Re-Enter Password</label>
+          <input
+            type="password"
+            placeholder="password again"
+            name="passwordRepeat"
+            value={stateRegister.passwordRepeat}
+            onChange={handleChangeRegister}
+          />
+          <br />
+          <label>First Name</label>
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="André"
             name="firstName"
             value={stateRegister.firstName}
             onChange={handleChangeRegister}
           />
+          <label>Last Name</label>
           <input
             type="text"
-            placeholder="Last Name"
+            placeholder="Benoit"
             name="lastName"
             value={stateRegister.lastName}
             onChange={handleChangeRegister}

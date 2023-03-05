@@ -34,27 +34,27 @@ function List () {
       <div className='EMCList'>
         <div className='EMCTitle'>EMC</div>
         {emc.map((device) => 
-          <div className='EMCDevice' key={device.id}>
-            <Link to={'/device/' + device.id}>
+          <Link to={'/device/' + device.id}>
+            <div className='EMCDevice' key={device.id}>
               <div className='DeviceTitle'>{device.name}</div>
-            </Link>
-            <EMCLiveData 
-              id={device.id}
-            />
-          </div>
+              <EMCLiveData 
+                id={device.id}
+              />
+            </div>
+          </Link>
         )}
       </div>
       <div className='PMVList'>
         <div className='PMVTitle'>PMV</div>
         {pmv.map((device) =>
-          <div className='PMVDevice' key={device.id}>
-            <Link to={'/device/' + device.id}>
+          <Link to={'/device/' + device.id}>
+            <div className='PMVDevice' key={device.id}>
               <div className='DeviceTitle'>{device.name}</div>
-            </Link>
-            <PMVLiveData 
-              id={device.id}
-            />
-          </div>
+              <PMVLiveData 
+                id={device.id}
+              />
+            </div>
+          </Link>
         )}
       </div>
     </div>

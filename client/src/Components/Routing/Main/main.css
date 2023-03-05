@@ -27,6 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 2px 2px black;
 }
 
 .DeviceInfoButtons {
@@ -44,8 +45,14 @@
   align-items: center;
   border-radius: 5px;
   border: 2px solid rgb(59, 33, 177);
+  font-weight: bold;
+  box-shadow: 2px 2px black;
 }
 
 .DeviceInfoButton:hover {
   cursor: pointer;
+}
+
+.DeviceInfoButton:active {
+  box-shadow: 1px 1px black;
 }

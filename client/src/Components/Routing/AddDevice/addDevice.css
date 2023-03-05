@@ -7,7 +7,8 @@
 }
 
 .AddEMC {
-  border: 3px solid black;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   margin: 5vh;
   width: 40vh;
@@ -28,7 +29,8 @@
 }
 
 .AddPMV {
-  border: 3px solid black;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   margin: 5vh;
   width: 40vh;
@@ -56,6 +58,7 @@
 
 h3 {
   color: white;
+  text-shadow: 1px 1px black;
 }
 
 form {
@@ -65,16 +68,46 @@ form {
   height: 300px;
 }
 
-button {
+.Submit-PMV {
   background-color: rgb(163, 106, 0);
   font-weight: bold;
-  text-shadow: 2px 2px #8a0606;
+  text-shadow: 1px 1px #000000;
   color: white;
   height: 30px;
   width: 20vh;
   margin: 20px;
   border-radius: 5px;
   border: solid 2px white;
+  box-shadow: 2px 2px black;
+}
+
+.Submit-PMV:active {
+  box-shadow: 1px 1px black;
+}
+
+.Submit-PMV:hover {
+  background-color: #2f7c33;
+}
+
+.Submit-EMC {
+  background-color: rgb(163, 106, 0);
+  font-weight: bold;
+  text-shadow: 1px 1px #000000;
+  color: white;
+  height: 30px;
+  width: 20vh;
+  margin: 20px;
+  border-radius: 5px;
+  border: solid 2px white;
+  box-shadow: 2px 2px black;
+}
+
+.Submit-EMC:active {
+  box-shadow: 1px 1px black;
+}
+
+.Submit-EMC:hover {
+  background-color: #2f7c33;
 }
 
 button:hover {

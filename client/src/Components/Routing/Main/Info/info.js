@@ -1,6 +1,6 @@
 import './info.css';
 import WeatherInfo from './WeatherInfo/weatherInfo';
-import Weather from './Weather/weather'
+import WeatherButtonComponent from './WeatherButtonComponent/weatherButtonComponent'
 import { useState, useEffect } from 'react';
 import { WeatherService } from '../../../../Services/weatherApi';
 
@@ -34,7 +34,7 @@ function Info() {
         </div>
         <div className="WeatherButtonContainer">
           <div className='WeatherButton'>
-            <Weather 
+            <WeatherButtonComponent 
               infoStatus={infoStatus}
               setInfoStatus={setInfoStatus}
             /> 
@@ -52,7 +52,7 @@ function Info() {
         </div>
         <div className="WeatherButtonContainer">
           <div className="WeatherButton">
-            <Weather 
+            <WeatherButtonComponent 
               infoStatus={infoStatus}
               setInfoStatus={setInfoStatus}
             />     

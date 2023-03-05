@@ -10,6 +10,7 @@
 
 .LoginSection {
   border: 3px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   color: white;
   text-shadow: 2px 2px #000000;
@@ -41,12 +42,13 @@
 
 .RegisterSection {
   border: 3px solid black;
+  box-shadow: 4px 4px black;
   border-radius: 25px;
   color: white;
   text-shadow: 2px 2px #000000;
   margin: 5vh;
   width: 50vh;
-  height: 60vh;
+  height: 52vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,6 +60,10 @@
   background: linear-gradient(#33883f, #2f7c33);
 }
 
+.Registerform {
+  height: 40vh;
+}
+
 .RegisterTitle {
   display: flex;
   flex-direction: column;
@@ -65,8 +71,30 @@
   align-items: center;
 }
 
+.form-submit {
+  background-color: rgb(163, 106, 0);
+  font-weight: bold;
+  text-shadow: 1px 1px #000000;
+  color: white;
+  height: 30px;
+  width: 20vh;
+  margin: 20px;
+  border-radius: 5px;
+  border: solid 2px white;
+  box-shadow: 2px 2px black;
+}
+
+.form-submit:hover {
+  background-color: #2f7c33;
+}
+
+.form-submit:active {
+  box-shadow: 1px 1px black;
+}
+
 input {
   border-radius: 6px;
   border: 1px solid rgb(2, 36, 8);
+  box-shadow: 2px 2px rgb(68, 68, 68);
   padding: 3px;
 }

@@ -1,0 +1,24 @@
+.WeatherButtonComponent {
+  background-color: rgb(141, 181, 214);
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 40px;
+  position: absolute;
+  color: rgb(43, 40, 63);
+  box-shadow: 2px 2px black;
+}
+
+
+.WeatherButtonComponent:hover {
+  cursor: pointer;
+  background-color: rgb(64, 97, 116);
+}
+
+.WeatherButtonComponent:active {
+  box-shadow: 1px 1px black;
+}
