@@ -40,7 +40,7 @@ const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
           element={<Settings />} 
         />
         <Route 
-          path="/device/:id" 
+          path="/device/:prev/:id" 
           element={<DeviceDetails />} 
         />
         <Route 

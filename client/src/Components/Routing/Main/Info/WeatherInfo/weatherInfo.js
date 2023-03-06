@@ -55,7 +55,9 @@ function weatherInfo({ weather }) {
     middleHourly.push(weather.hourly[i]);
   }
 
-
+  if (!topHourly[0].dt) {
+    return 
+  }
 
   return (
     <div className="InfoWeather">

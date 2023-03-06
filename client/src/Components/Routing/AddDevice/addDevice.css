@@ -79,9 +79,10 @@ form {
 .Submit-PMV {
   background-color: rgb(163, 106, 0);
   font-weight: bold;
+  font-size: 20px;
   text-shadow: 1px 1px #000000;
   color: white;
-  height: 30px;
+  height: 40px;
   width: 20vh;
   margin: 20px;
   border-radius: 5px;
@@ -100,9 +101,10 @@ form {
 .Submit-EMC {
   background-color: rgb(163, 106, 0);
   font-weight: bold;
+  font-size: 20px;
   text-shadow: 1px 1px #000000;
   color: white;
-  height: 30px;
+  height: 40px;
   width: 20vh;
   margin: 20px;
   border-radius: 5px;

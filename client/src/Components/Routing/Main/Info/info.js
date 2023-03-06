@@ -4,7 +4,7 @@ import WeatherButtonComponent from './WeatherButtonComponent/weatherButtonCompon
 import { useState, useEffect } from 'react';
 import { WeatherService } from '../../../../Services/weatherApi';
 
-function Info() {
+function Info({ location }) {
 
   const [weather, setWeather] = useState({
     current: {},
@@ -47,7 +47,7 @@ function Info() {
       <div className='Overlay'>
         <div className='InfoContainer'>
           <div className='Info'>
-
+          
           </div>
         </div>
         <div className="WeatherButtonContainer">

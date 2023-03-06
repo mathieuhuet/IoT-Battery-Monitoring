@@ -267,7 +267,7 @@ function AddDevice() {
       <form className='AddPMVForm' onSubmit={postPMV}>
         <div className="formTop">
           <label>
-            Name to identify EMC
+            Name to identify PMV
             <br />
             <input
               name="name"

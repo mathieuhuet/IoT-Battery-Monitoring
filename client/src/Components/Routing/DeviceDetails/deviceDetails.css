@@ -4,15 +4,8 @@
 }
 
 .DeviceDetailsLeft {
-  border-radius: 15px;
-  margin: 40px;
-  padding: 30px;
   display: flex;
-  background: #33883f;
-  background: -webkit-linear-gradient(#33883f, #2f7c33);
-  background: -o-linear-gradient(#33883f, #2f7c33);
-  background: -moz-linear-gradient(#33883f, #2f7c33);
-  background: linear-gradient(#33883f, #2f7c33);
+  flex-direction: column;
 }
 
 .DeviceDetailsRight {
@@ -20,8 +13,46 @@
   flex-direction: column;
 }
 
+.GoBack {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  margin: 20px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  background: #477abd;
+  background: -webkit-linear-gradient(#477abd, #084eaa);
+  background: -o-linear-gradient(#477abd, #084eaa);
+  background: -moz-linear-gradient(#477abd, #084eaa);
+  background: linear-gradient(#477abd, #084eaa);
+}
+
+.GoBack:hover {
+  cursor: pointer;
+  background: #0c3b79;
+  background: -webkit-linear-gradient(#0c3b79, #084eaa);
+  background: -o-linear-gradient(#0c3b79, #084eaa);
+  background: -moz-linear-gradient(#0c3b79, #084eaa);
+  background: linear-gradient(#0c3b79, #084eaa);
+}
+
+.GoBack:active {
+  box-shadow: 1px 1px black;
+}
+
+/* Most of ModifyDeviceDetails Attribute are in addDevice */
+.ModifyDeviceDetails {
+  margin-top: -20px;
+}
+
 .DeviceDetailsInfo {
   border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   padding: 30px;
   margin: 40px;
   background: #33883f;
@@ -31,8 +62,24 @@
   background: linear-gradient(#33883f, #2f7c33);
 }
 
+.DeviceDetailsInfoData {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 3px 3px black;
+  width: fit-content ;
+}
+
+.DeviceDetailsInfoTitle {
+
+}
+
 .DeviceDetailsData {
   border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
   padding: 30px;
   margin: 40px;
   background: #33883f;
@@ -40,4 +87,37 @@
   background: -o-linear-gradient(#33883f, #2f7c33);
   background: -moz-linear-gradient(#33883f, #2f7c33);
   background: linear-gradient(#33883f, #2f7c33);
+}
+
+.DeleteDevice {
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 15px;
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  background: #a51717;
+  background: -webkit-linear-gradient(#a51717, #5f0909);
+  background: -o-linear-gradient(#a51717, #5f0909);
+  background: -moz-linear-gradient(#a51717, #5f0909);
+  background: linear-gradient(#a51717, #5f0909);
+}
+
+.DeleteDevice:hover {
+  cursor: pointer;
+  background: #5f0909;
+  background: -webkit-linear-gradient(#5f0909, #330404);
+  background: -o-linear-gradient(#5f0909, #330404);
+  background: -moz-linear-gradient(#5f0909, #330404);
+  background: linear-gradient(#5f0909, #330404);
+}
+
+.DeleteDevice:active {
+  box-shadow: 1px 1px black;
+  text-shadow: 0px 0px black;
 }

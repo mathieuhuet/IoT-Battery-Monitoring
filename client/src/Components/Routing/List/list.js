@@ -41,7 +41,7 @@ function List () {
         <div className='EMCTitle'><img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/>EMC<img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/></div>
         {emc.map((device) => 
           <div key={device.id}>
-          <Link to={'/device/' + device.id}>
+          <Link to={'/device/devices/' + device.id}>
             <div className='EMCDevice' >
               <div className='DeviceTitle'>{device.name}</div>
               <EMCLiveData 
@@ -56,7 +56,7 @@ function List () {
         <div className='PMVTitle'><img src={PMV} alt=''/> PMV <img src={PMV} alt=''/></div>
         {pmv.map((device) =>
           <div key={device.id}>
-            <Link to={'/device/' + device.id}>
+            <Link to={'/device/devices/' + device.id}>
               <div className='PMVDevice'>
                 <div className='DeviceTitle'>{device.name}</div>
                 <PMVLiveData 

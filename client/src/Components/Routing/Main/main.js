@@ -1,7 +1,7 @@
 import './main.css';
 import Spinner from '../../../Spinner'
 import Info from './Info/info'
-import { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api"
 import { DeviceService } from '../../../Services/deviceServiceApi';
@@ -15,6 +15,7 @@ import Battery2 from '../../../Assets/battery2.png'
 import Battery3 from '../../../Assets/battery3.png'
 import Battery4 from '../../../Assets/battery4.png'
 import PMV from '../../../Assets/pmvicon.png'
+import mapStyles from './mapStyles';
 
 
 
@@ -26,6 +27,7 @@ function Main() {
   });
   const mapOptions = {
     fullscreenControl: false,
+    styles: mapStyles,
   };
   if (!isLoaded) {
     return <Spinner />
@@ -123,8 +125,8 @@ function Main() {
                 <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, '', ''])}>
                   Close
                 </div>
-                <div className='DeviceInfoButton' onClick={() => navigate(`/device/${deviceInfo[0]}`)}>
-                  Modify
+                <div className='DeviceInfoButton' onClick={() => navigate(`/device/id/${deviceInfo[0]}`)}>
+                  More
                 </div>
               </div>
             </div>
@@ -142,8 +144,8 @@ function Main() {
                 <div className='DeviceInfoButton' onClick={() => setDeviceInfo([0, '', ''])}>
                   Close
                 </div>
-                <div className='DeviceInfoButton' onClick={() => navigate(`/device/${deviceInfo[0]}`)}>
-                  Modify
+                <div className='DeviceInfoButton' onClick={() => navigate(`/device/id/${deviceInfo[0]}`)}>
+                  More
                 </div>
               </div>
             </div>
@@ -151,15 +153,37 @@ function Main() {
         }
       }
     }
-    const center = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
+
+
+
+    const [mapref, setMapRef] = React.useState(null);
+    const handleOnLoad = map => {
+      setMapRef(map);
+    };
+    const handleCenterChanged = () => {
+      if (mapref) {
+        // const newCenter = mapref.getCenter();
+        //newCenter lat & lng are function, something is wrong...
+      }
+    };
+    const defaultCenter = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
     return (
-      <GoogleMap zoom={11} center={center} options={mapOptions} mapContainerClassName="MapContainer" >
-        <Info />
+      <GoogleMap 
+        zoom={11} 
+        center={defaultCenter} 
+        options={mapOptions}
+        mapContainerClassName="MapContainer" 
+        onLoad={handleOnLoad}
+        onCenterChanged={handleCenterChanged}
+      >
+        <Info 
+          // Trying to send location to give weather data depending on map location
+          location={mapref ? mapref.getCenter : defaultCenter}
+        />
         {devices.map((device) => 
           <div key={device.id}>
             <MarkerF 
               position={{lat: device.lat, lng: device.lng}} 
-              // icon={() => getBatteryIcon(device.id)}
               icon={device.icon === 0 ? PMV : device.icon === 1 ? Battery1 : device.icon === 2 ? Battery2 : device.icon === 3 ? Battery3 : device.icon === 4 ? Battery4 : Battery0} 
               onClick={() => setDeviceInfo([device.id, device.battery, device.name])}
             />

@@ -85,10 +85,18 @@ const devicesController = {
   //PUT REQUEST aka UPDATE /device/:id/
   updateDevice: async (ctx) => {
     try {
+      const { updatedData } = ctx.request.body;
       const { id } = ctx.params;
       const deviceToUpdate = await Devices.findByPk(id); //find by PrimaryKey
       if (!deviceToUpdate) throw new Error('Device not found');
-      const updatedDevice = await deviceToUpdate.increment({ score }); //WORK ON THIS LINE MATHIEU TO UPDATE DEVICES
+      deviceToUpdate.name = updatedData.name;
+      deviceToUpdate.ip = updatedData.ip;
+      deviceToUpdate.port = updatedData.port;
+      deviceToUpdate.community = updatedData.community;
+      deviceToUpdate.lat = updatedData.lat;
+      deviceToUpdate.lng = updatedData.lng;
+      deviceToUpdate.battery = updatedData.battery;
+      const updatedDevice = await deviceToUpdate.save();
       if (!updatedDevice.dataValues) throw new Error('Device not updated');
       ctx.status = 200;
       ctx.body = {
