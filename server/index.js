@@ -6,7 +6,7 @@ const router = require('./router.js');
 const app = new Koa();
 
 app.use(cors({
-  origin: 'http://localhost:8080',
+  origin: '*',
   credentials: true,
 }));
 app.use(bodyParser());
