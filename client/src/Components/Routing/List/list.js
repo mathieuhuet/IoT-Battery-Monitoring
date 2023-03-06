@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom';
 import EMCLiveData from '../../LiveData/emcLiveData';
 import PMVLiveData from '../../LiveData/pmvLiveData';
 import PMV from '../../../Assets/pmvicon.png';
-import Battery0 from '../../../Assets/battery0.png';
-import Battery1 from '../../../Assets/battery1.png';
-import Battery2 from '../../../Assets/battery2.png';
-import Battery3 from '../../../Assets/battery3.png';
-import Battery4 from '../../../Assets/battery4.png';
 
 
 
@@ -36,9 +31,10 @@ function List () {
 
 
   return (
-    <div className="List">
+    <div className='AppContainer'>
+      <div className="List">
       <div className='EMCList'>
-        <div className='EMCTitle'><img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/>EMC<img src={Battery1} alt=''/><img src={Battery4} alt=''/><img src={Battery2} alt=''/><img src={Battery0} alt=''/><img src={Battery3} alt=''/></div>
+        <div className='EMCTitle'>EMC</div>
         {emc.map((device) => 
           <div key={device.id}>
           <Link to={'/device/devices/' + device.id}>
@@ -67,6 +63,7 @@ function List () {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

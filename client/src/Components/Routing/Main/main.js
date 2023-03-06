@@ -168,7 +168,8 @@ function Main() {
     };
     const defaultCenter = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
     return (
-      <GoogleMap 
+      <div className='AppContainer'>
+              <GoogleMap 
         zoom={11} 
         center={defaultCenter} 
         options={mapOptions}
@@ -191,6 +192,7 @@ function Main() {
         )}
         <DeviceInfo />
       </GoogleMap>
+      </div>
     )
   }
 }

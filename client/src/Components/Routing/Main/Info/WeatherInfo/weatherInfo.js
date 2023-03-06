@@ -46,6 +46,11 @@ function weatherInfo({ weather }) {
         return;
     }
   }
+
+  if (!weather) {
+    return <div></div>
+  }
+
   const topHourly = [];
   const middleHourly = [];
   for (let i = 0; i < 5; i++) {
@@ -53,10 +58,6 @@ function weatherInfo({ weather }) {
   }
   for (let i = 5; i < 12; i++) {
     middleHourly.push(weather.hourly[i]);
-  }
-
-  if (!topHourly[0].dt) {
-    return 
   }
 
   return (

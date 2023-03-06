@@ -92,89 +92,90 @@ const Login = (props) => {
 
 
   return (
-    <div className='Login'>
-      <div className='LoginSection'>
-      <br />
-        <h3>Please LogIn to access this website.</h3>
-        <form className="LoginForm" onSubmit={handleSubmitLogin}>
-          <div className='LoginInput'>
+    <div className='AppContainer'>
+      <div className='Login'>
+        <div className='LoginSection'>
+        <br />
+          <h3>Please LogIn to access this website.</h3>
+          <form className="LoginForm" onSubmit={handleSubmitLogin}>
+            <div className='LoginInput'>
+              <label>Email</label>
+              <input
+                type="text"
+                placeholder="myemail@mail.com"
+                name="email"
+                value={stateLogin.email}
+                onChange={handleChangeLogin}
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                value={stateLogin.password}
+                onChange={handleChangeLogin}
+              />
+              <button className="form-submit" type="submit" disabled={validateFormLogin()}>
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+        <div className='RegisterSection'>
+          <div className='RegisterTitle'>
+            <h3>Don't have an account?</h3>
+            <h3>You can create one by filling this form.</h3>
+          </div>
+          <form className="Registerform" onSubmit={handleSubmitRegister}>
             <label>Email</label>
             <input
               type="text"
               placeholder="myemail@mail.com"
               name="email"
-              value={stateLogin.email}
-              onChange={handleChangeLogin}
+              value={stateRegister.email}
+              onChange={handleChangeRegister}
             />
+            <br />
             <label>Password</label>
             <input
               type="password"
               placeholder="password"
               name="password"
-              value={stateLogin.password}
-              onChange={handleChangeLogin}
+              value={stateRegister.password}
+              onChange={handleChangeRegister}
             />
-            <button className="form-submit" type="submit" disabled={validateFormLogin()}>
-              Login
+            <label>Re-Enter Password</label>
+            <input
+              type="password"
+              placeholder="password again"
+              name="passwordRepeat"
+              value={stateRegister.passwordRepeat}
+              onChange={handleChangeRegister}
+            />
+            <br />
+            <label>First Name</label>
+            <input
+              type="text"
+              placeholder="André"
+              name="firstName"
+              value={stateRegister.firstName}
+              onChange={handleChangeRegister}
+            />
+            <label>Last Name</label>
+            <input
+              type="text"
+              placeholder="Benoit"
+              name="lastName"
+              value={stateRegister.lastName}
+              onChange={handleChangeRegister}
+            />
+            <button className="form-submit" type="submit" disabled={validateFormRegister()}>
+              Register
             </button>
-          </div>
-        </form>
-      </div>
-      <div className='RegisterSection'>
-        <div className='RegisterTitle'>
-          <h3>Don't have an account?</h3>
-          <h3>You can create one by filling this form.</h3>
+          </form>
         </div>
-        <form className="Registerform" onSubmit={handleSubmitRegister}>
-          <label>Email</label>
-          <input
-            type="text"
-            placeholder="myemail@mail.com"
-            name="email"
-            value={stateRegister.email}
-            onChange={handleChangeRegister}
-          />
-          <br />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={stateRegister.password}
-            onChange={handleChangeRegister}
-          />
-          <label>Re-Enter Password</label>
-          <input
-            type="password"
-            placeholder="password again"
-            name="passwordRepeat"
-            value={stateRegister.passwordRepeat}
-            onChange={handleChangeRegister}
-          />
-          <br />
-          <label>First Name</label>
-          <input
-            type="text"
-            placeholder="André"
-            name="firstName"
-            value={stateRegister.firstName}
-            onChange={handleChangeRegister}
-          />
-          <label>Last Name</label>
-          <input
-            type="text"
-            placeholder="Benoit"
-            name="lastName"
-            value={stateRegister.lastName}
-            onChange={handleChangeRegister}
-          />
-          <button className="form-submit" type="submit" disabled={validateFormRegister()}>
-            Register
-          </button>
-        </form>
       </div>
     </div>
-
   );
 };
 

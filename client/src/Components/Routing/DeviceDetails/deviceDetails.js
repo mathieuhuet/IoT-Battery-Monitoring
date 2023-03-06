@@ -24,37 +24,39 @@ function DeviceDetails() {
     }
   }, [id]);
   return (
-    <div className='DeviceDetails'>
-      <div className="DeviceDetailsLeft">
-        <div className='GoBack' onClick={goBack}>
-          <BsArrowLeftShort />
-        </div>
-        <div className='ModifyDeviceDetails'>
-          {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
-        </div>
-      </div>
-      <div className='DeviceDetailsRight'>
-        <div className='DeviceDetailsInfo'>
-          <div className='DeviceDetailsInfoTitle'>Created by</div>
-          <div className='DeviceDetailsInfoData'>
-            {device.createdBy}
+    <div className='AppContainer'>
+      <div className='DeviceDetails'>
+        <div className="DeviceDetailsLeft">
+          <div className='GoBack' onClick={goBack}>
+            <BsArrowLeftShort />
           </div>
-          <br />
-          <div className='DeviceDetailsInfoTitle'>Created at</div>
-          <div className='DeviceDetailsInfoData'>
-            {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
-          </div>
-          <br />
-          <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
-          <div className='DeviceDetailsInfoData'>
-            {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
+          <div className='ModifyDeviceDetails'>
+            {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
           </div>
         </div>
-        <div className='DeviceDetailsData'>
-          {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
-        </div>
-        <div className='DeleteDevice' onClick={deleteDevice}>
-          {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
+        <div className='DeviceDetailsRight'>
+          <div className='DeviceDetailsInfo'>
+            <div className='DeviceDetailsInfoTitle'>Created by</div>
+            <div className='DeviceDetailsInfoData'>
+              {device.createdBy}
+            </div>
+            <br />
+            <div className='DeviceDetailsInfoTitle'>Created at</div>
+            <div className='DeviceDetailsInfoData'>
+              {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
+            </div>
+            <br />
+            <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
+            <div className='DeviceDetailsInfoData'>
+              {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
+            </div>
+          </div>
+          <div className='DeviceDetailsData'>
+            {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
+          </div>
+          <div className='DeleteDevice' onClick={deleteDevice}>
+            {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
+          </div>
         </div>
       </div>
     </div>

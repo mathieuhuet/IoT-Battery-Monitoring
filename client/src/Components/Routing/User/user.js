@@ -56,7 +56,8 @@ const User = (props) => {
   }, []);
 
   return (
-    <div className='User'>
+    <div className='AppContainer'>
+      <div className='User'>
       <section className='Profile'>
         <h3>My Profile</h3>
         <h3>
@@ -72,6 +73,7 @@ const User = (props) => {
           <button className="confirm-btn">No</button>
         </Link>
       </section>
+    </div>
     </div>
   );
 };

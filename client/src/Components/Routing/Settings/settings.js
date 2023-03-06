@@ -59,8 +59,10 @@ function Settings() {
   };
 
   return (
-    <div className="Settings">
-      <Line options={options} data={data} />
+    <div className='AppContainer'>
+      <div className="Settings">
+        <Line options={options} data={data} />
+      </div>
     </div>
   );
 }

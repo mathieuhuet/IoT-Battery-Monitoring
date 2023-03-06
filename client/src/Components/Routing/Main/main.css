@@ -1,5 +1,13 @@
-.MapContainer {
+.AppContainer {
   width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.MapContainer {
+  width: calc(100% - 100px);
   height: 100vh;
   display: flex;
   justify-content: flex-start;
