@@ -136,7 +136,7 @@ function weatherInfo({ weather }) {
           <div className='dailyList' key={daily.dt}>
             <div className='leftDaily'>
               <div className='weatherTime Day'>
-                {format(new Date(daily.dt * 1000), 'MM/dd')}
+                {format(new Date(daily.dt * 1000), 'dd/MM')}
               </div>
               <div className='weatherLogo'>
                 <h2>{checkIcon(daily.icon)}</h2>

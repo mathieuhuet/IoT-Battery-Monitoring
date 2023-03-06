@@ -1,6 +1,6 @@
 .DeviceDetails {
   display: flex;
-  
+  width: calc(100% - 100px);
 }
 
 .DeviceDetailsLeft {
@@ -69,7 +69,6 @@
   border-radius: 5px;
   border: 2px solid black;
   box-shadow: 3px 3px black;
-  width: fit-content ;
 }
 
 .DeviceDetailsInfoTitle {

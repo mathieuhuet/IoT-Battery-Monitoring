@@ -1,4 +1,5 @@
 const secret = require('../secret');
+const fetch = require('node-fetch');
 
 
 //GET REQUEST /weather

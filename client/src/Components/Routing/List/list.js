@@ -15,17 +15,19 @@ function List () {
   useEffect(() => {
     DeviceService.getDevices()
     .then(data => {
-      let pmvArray = [];
-      let emcArray = [];
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].battery === 'pmv') {
-          pmvArray.push(data[i]);
-        } else {
-          emcArray.push(data[i])
+      if (data) {
+        let pmvArray = [];
+        let emcArray = [];
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].battery === 'pmv') {
+            pmvArray.push(data[i]);
+          } else {
+            emcArray.push(data[i])
+          }
         }
+        setEMC(emcArray);
+        setPMV(pmvArray);
       }
-      setEMC(emcArray);
-      setPMV(pmvArray);
     })
   }, []);
 
