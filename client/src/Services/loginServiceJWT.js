@@ -1,5 +1,13 @@
 const BASE_URL = 'http://localhost:3030';
 
+/*
+Login service.
+
+Register, Login, Logout, Profile
+*/
+
+
+
 const loginServiceJWT = {};
 
 loginServiceJWT.register = (user) => {
@@ -50,18 +58,6 @@ loginServiceJWT.profile = async (accessToken) => {
 loginServiceJWT.logout = (tokenName) => {
   // delete token from local storage here
   localStorage.removeItem(tokenName);
-  // the following request should invalidate the token
-  // return fetch(`${BASE_URL}/logout`, {
-  //   method: 'POST',
-  //   credentials: 'include',
-  //   mode: 'cors',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${tokenName}`,
-  //   },
-  // })
-  //   .then((res) => res.json())
-  //   .catch((err) => console.log(err));
 };
 
 export default loginServiceJWT;

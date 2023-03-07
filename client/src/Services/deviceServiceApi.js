@@ -1,5 +1,13 @@
 const URL = 'http://localhost:3030/device';
 
+
+/*
+Device Service, get general information for all the devices on the database.
+
+NAME IP PORT ID ect.
+*/
+
+
 export const DeviceService = {
 
   //Get Request

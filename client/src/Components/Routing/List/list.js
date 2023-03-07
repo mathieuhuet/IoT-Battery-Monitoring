@@ -2,9 +2,14 @@ import './list.css';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { sortByName } from '../../../Utilities/sortAlphabetically';
 import EMCLiveData from '../../LiveData/emcLiveData';
 import PMVLiveData from '../../LiveData/pmvLiveData';
 import PMV from '../../../Assets/pmvicon.png';
+
+/*
+List all the devices on screen with live data.
+*/
 
 
 
@@ -25,8 +30,8 @@ function List () {
             emcArray.push(data[i])
           }
         }
-        setEMC(emcArray);
-        setPMV(pmvArray);
+        setEMC(sortByName(emcArray));
+        setPMV(sortByName(pmvArray));
       }
     })
   }, []);

@@ -1,42 +1,101 @@
 import './addDevice.css';
+import { useState } from 'react';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import loginServiceJWT from '../../../Services/loginServiceJWT';
 import PMV from '../../../Assets/pmvicon.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+/*
+Add Device Form. To add a EMC or PMV to the database.
+*/
 
 
 function AddDevice() {
 
+  function notificationS (message) {
+    toast.success(message, {
+      position: "top-center",
+      closeOnClick: true,
+      theme: 'dark'
+    });
+  }
+
+  function notificationE (message) {
+    toast.error(message, {
+      position: "top-center",
+      closeOnClick: true,
+      theme: 'dark'
+    });
+  }
+
+  const initialStateEMC = {
+    name: '',
+    ip: '',
+    port: '',
+    community: '',
+    lat: '',
+    lng: '',
+  };
+  const [stateEMC, setStateEMC] = useState(initialStateEMC)
+  const handleChangeEMC = (event) => {
+    const { name, value } = event.target;
+    setStateEMC((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const initialStatePMV = {
+    name: '',
+    ip: '',
+    port: '',
+    community: '',
+    lat: '',
+    lng: '',
+  };
+  const [statePMV, setStatePMV] = useState(initialStatePMV)
+  const handleChangePMV = (event) => {
+    const { name, value } = event.target;
+    setStatePMV((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+
+
   async function postEMC (event) {
     event.preventDefault();
-    const ip = event.target.ip.value;
-    const port = event.target.port.value;
-    const name = event.target.name.value;
-    let lat = event.target.lat.value;
-    let lng = event.target.lng.value;
-    const community = event.target.community.value;
+    const ip = stateEMC.ip;
+    const port = stateEMC.port;
+    const name = stateEMC.name;
+    let lat = stateEMC.lat;
+    let lng = stateEMC.lng;
+    const community = stateEMC.community;
     const battery = event.target.battery.value
 
-    const testIP = event.target.ip.value.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+    const testIP = ip.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
     if (!testIP) {
-      alert('The IP you entered is invalid (IP INVALID)');
+      notificationE('The IP you entered is invalid (IP INVALID)');
       return;
     }
     if (lat.length < 4 || lng.length < 4) {
-      alert('Latitude or Longitude is too short.');
+      notificationE('Latitude or Longitude is too short.');
       return;
     }
     if (lat.length >  18 || lng.length > 18) {
-      alert('Latitude or Longitude is too long.');
+      notificationE('Latitude or Longitude is too long.');
       return;
     }
     lat = Number(lat);
     lng = Number(lng);
     if (isNaN(lat) || isNaN(lng)) {
-      alert('Latitude or Longitude must be a number.');
+      notificationE('Latitude or Longitude must be a number.');
       return;
     }
     if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-      alert('You must fill all the field to add a Device.');
+      notificationE('You must fill all the field to add a Device.');
       return;
     }
     //Get user info to add to CreatedBy attribute
@@ -64,58 +123,52 @@ function AddDevice() {
   
       const newDevice = await DeviceService.postDevice(data)
       if (!newDevice) {
-        alert('ERROR WHILE CREATING DEVICE. BACK_END PROBLEM');
+        notificationE('ERROR WHILE CREATING DEVICE. BACK_END PROBLEM');
         return;
       } else {
-        alert('EMC Device Created Successfully.');
+        notificationS('EMC Device successfully created');
         return;
       }
     })
-
-
-    event.target.ip.value = '';
-    event.target.port.value = '';
-    event.target.name.value = '';
-    event.target.lat.value = '';
-    event.target.lng.value = '';
-    event.target.community.value = '';
+    //Removing all the characters from the form field
+    setStateEMC(initialStateEMC);
   }
 
   async function postPMV (event) {
     event.preventDefault();
-    const ip = event.target.ip.value;
-    const port = event.target.port.value;
-    const name = event.target.name.value;
-    let lat = event.target.lat.value;
-    let lng = event.target.lng.value;
-    const community = event.target.community.value;
+    const ip = statePMV.ip;
+    const port = statePMV.port;
+    const name = statePMV.name;
+    let lat = statePMV.lat;
+    let lng = statePMV.lng;
+    const community = statePMV.community;
     const battery = 'pmv';
 
-    const testIP = event.target.ip.value.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+    const testIP = ip.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
     if (!testIP) {
-      alert('The IP you entered is invalid (IP INVALID)');
+      notificationE('The IP you entered is invalid (IP INVALID)');
       return;
     }
     if (lat.length < 5 || lng.length < 5) {
-      alert('Latitude or Longitude is too short.');
+      notificationE('Latitude or Longitude is too short.');
       return;
     }
     if (name.length > 26) {
-      alert('Name of device too long (max: 26 characters)')
+      notificationE('Name of device too long (max: 26 characters)')
       return;
     }
     if (lat.length >  18 || lng.length > 18) {
-      alert('Latitude or Longitude is too long.');
+      notificationE('Latitude or Longitude is too long.');
       return;
     }
     lat = Number(lat);
     lng = Number(lng);
     if (isNaN(lat) || isNaN(lng)) {
-      alert('Latitude or Longitude must be a number.');
+      notificationE('Latitude or Longitude must be a number.');
       return;
     }
     if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-      alert('You must fill all the field to add a Device.');
+      notificationE('You must fill all the field to add a Device.');
       return;
     }
     //Get user info to add to CreatedBy attribute
@@ -143,27 +196,21 @@ function AddDevice() {
   
       const newDevice = await DeviceService.postDevice(data)
       if (!newDevice) {
-        alert('ERROR WHILE CREATING DEVICE. BACK_END PROBLEM');
+        notificationE('ERROR WHILE CREATING DEVICE. BACK_END PROBLEM');
         return;
       } else {
-        alert('PMV Device Created Successfully.');
+        notificationS('PMV Device Created Successfully.');
         return;
       }
     })
-
-
-
-    event.target.ip.value = '';
-    event.target.port.value = '';
-    event.target.name.value = '';
-    event.target.lat.value = '';
-    event.target.lng.value = '';
-    event.target.community.value = '';
+    //Removing all the characters from the form field
+    setStatePMV(initialStatePMV);
   }
 
   return (
 
     <div className='AppContainer'>
+      <ToastContainer />
       <div className="AddDevice">
         <div className="AddEMC">
         <br />
@@ -178,6 +225,8 @@ function AddDevice() {
                 name="name"
                 type="text"
                 placeholder="Name"
+                value={stateEMC.name}
+                onChange={handleChangeEMC}
               />
             </label>
             <br />
@@ -188,6 +237,8 @@ function AddDevice() {
                 name="ip"
                 type="text"
                 placeholder="IP Address"
+                value={stateEMC.ip}
+                onChange={handleChangeEMC}
               />
             </label>
             <br />
@@ -200,6 +251,8 @@ function AddDevice() {
                 min="1"
                 max="65555"
                 placeholder='#PORT'
+                value={stateEMC.port}
+                onChange={handleChangeEMC}
               />
             </label>
             <br />
@@ -210,6 +263,8 @@ function AddDevice() {
                 name="community"
                 type="text"
                 placeholder='Community String'
+                value={stateEMC.community}
+                onChange={handleChangeEMC}
               />
             </label>
           </div>
@@ -221,6 +276,8 @@ function AddDevice() {
                 name="lat"
                 type="text"
                 placeholder="Latitude (ex. -75.23452)"
+                value={stateEMC.lat}
+                onChange={handleChangeEMC}
               />
             </label>
             <br />  
@@ -231,6 +288,8 @@ function AddDevice() {
                 name="lng"
                 type="text"
                 placeholder='Longitude (ex. 42.02358)'
+                value={stateEMC.lng}
+                onChange={handleChangeEMC}
               />
             </label>
           </div>
@@ -275,6 +334,8 @@ function AddDevice() {
                 name="name"
                 type="text"
                 placeholder="Name"
+                value={statePMV.name}
+                onChange={handleChangePMV}
               />
             </label>
             <br />
@@ -285,6 +346,8 @@ function AddDevice() {
                 name="ip"
                 type="text"
                 placeholder="IP Address"
+                value={statePMV.ip}
+                onChange={handleChangePMV}
               />
             </label>
             <br />
@@ -297,6 +360,8 @@ function AddDevice() {
                 min="1"
                 max="65555"
                 placeholder='#PORT'
+                value={statePMV.port}
+                onChange={handleChangePMV}
               />
             </label>
             <br />
@@ -307,6 +372,8 @@ function AddDevice() {
                 name="community"
                 type="text"
                 placeholder='Community String'
+                value={statePMV.community}
+                onChange={handleChangePMV}
               />
             </label>
           </div>
@@ -318,6 +385,8 @@ function AddDevice() {
                 name="lat"
                 type="text"
                 placeholder="Latitude (ex. -75.23452)"
+                value={statePMV.lat}
+                onChange={handleChangePMV}
               />
             </label>
             <br />  
@@ -328,6 +397,8 @@ function AddDevice() {
                 name="lng"
                 type="text"
                 placeholder='Longitude (ex. 42.02358)'
+                value={statePMV.lng}
+                onChange={handleChangePMV}
               />
             </label>
           </div>

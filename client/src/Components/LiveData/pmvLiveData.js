@@ -3,13 +3,24 @@ import { PMVService } from '../../Services/pmvService';
 import { useEffect, useState } from 'react'
 import Spinner from '../../Spinner';
 
+
+/*
+Render Live data from the PMv device passed in argument.
+*/
+
 function PMVLiveData({ id }) {
-  const [pmvData, setPMVData] = useState([])
+  const [pmvData, setPMVData] = useState({
+    voltage: 0,
+    photocell: 0,
+    message: '',
+  })
   useEffect(() => {
     if (id) {
       PMVService.getLiveData(id)
       .then(data => {
-        setPMVData(data);
+        if (data) {
+          setPMVData(data);
+        }
       })
     }
   }, [id]);

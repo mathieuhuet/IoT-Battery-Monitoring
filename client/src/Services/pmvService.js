@@ -1,5 +1,10 @@
 const URL = 'http://localhost:3030/pmv';
 
+/*
+Get Live data for PMV device.
+*/
+
+
 export const PMVService = {
 
   //Get Request

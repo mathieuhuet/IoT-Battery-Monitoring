@@ -1,5 +1,10 @@
 const URL = 'http://localhost:3030/emc';
 
+/*
+Get Live data for EMC device.
+*/
+
+
 export const EMCService = {
 
   //Get Request

@@ -3,13 +3,25 @@ import { EMCService } from '../../Services/emcService';
 import { useEffect, useState } from 'react';
 import Spinner from '../../Spinner';
 
+/*
+Render Live data from the EMC device passed in argument.
+*/
+
+
 function EMCLiveData({ id }) {
-  const [emcData, setEMCData] = useState([])
+  const [emcData, setEMCData] = useState({
+    voltage: 0,
+    temperature: 0,
+    load: 0,
+    charge: 0,
+  })
   useEffect(() => {
     if (id) {
       EMCService.getLiveData(id)
       .then(data => {
-        setEMCData(data);
+        if (data) {
+          setEMCData(data);
+        }
       })
     }
   }, [id]);

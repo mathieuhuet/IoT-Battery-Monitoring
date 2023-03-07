@@ -2,7 +2,7 @@ import './top.css';
 import { AiOutlineHome } from "react-icons/ai";
 import { BiAddToQueue } from "react-icons/bi";
 import { VscListUnordered } from "react-icons/vsc";
-import { VscSettingsGear } from "react-icons/vsc";
+import { VscGraphLine } from "react-icons/vsc";
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ function Top({ isAuthenticated }) {
         </Link>
         <Link to="/settings">
           <div className="Setting">
-            <VscSettingsGear />
+            <VscGraphLine />
           </div>
         </Link>
       </div>
@@ -45,7 +45,7 @@ function Top({ isAuthenticated }) {
           <BiAddToQueue />
         </div>
         <div className="Setting">
-          <VscSettingsGear />
+          <VscGraphLine />
         </div>
       </div>
     );

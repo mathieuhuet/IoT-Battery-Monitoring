@@ -4,6 +4,13 @@ import auth from '../../../Utilities/auth';
 import loginServiceJWT from '../../../Services/loginServiceJWT';
 import { useNavigate } from 'react-router-dom';
 
+/*
+Login Page, where you login when you navigate to the site.
+The Registration form is also on that page.
+*/
+
+
+
 const initialStateLogin = {
   email: '',
   password: '',

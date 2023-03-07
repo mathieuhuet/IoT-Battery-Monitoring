@@ -3,10 +3,19 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BsArrowLeftShort } from "react-icons/bs";
 import { DeviceService } from '../../../Services/deviceServiceApi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import EMCLiveData from '../../LiveData/emcLiveData';
 import PMVLiveData from '../../LiveData/pmvLiveData';
 import PMV from '../../../Assets/pmvicon.png'
 
+
+/*
+Single device detail page.
+You can update the values (ip port name ect) of the devices
+View who created the device and some live data
+You can also delete the device.
+*/
 
 function DeviceDetails() {
   const { prev, id } = useParams();
@@ -14,7 +23,6 @@ function DeviceDetails() {
   let navigate = useNavigate();
 
 
-  //Get DeviceInformation (name, ip, position)
   useEffect(() => {
     if (id) {
       DeviceService.getSingleDevice(id)
@@ -81,6 +89,22 @@ function DeviceDetails() {
 
   function ModifyPMV () {
 
+    function notificationS (message) {
+      toast.success(message, {
+        position: "top-center",
+        closeOnClick: true,
+        theme: 'dark'
+      });
+    }
+  
+    function notificationE (message) {
+      toast.error(message, {
+        position: "top-center",
+        closeOnClick: true,
+        theme: 'dark'
+      });
+    }
+
     const initialStateUpdateForm = {
       name: device.name,
       ip: device.ip,
@@ -102,39 +126,39 @@ function DeviceDetails() {
 
     async function updatePMV (event) {
       event.preventDefault();
-      const ip = event.target.ip.value;
-      const port = event.target.port.value;
-      const name = event.target.name.value;
-      let lat = event.target.lat.value;
-      let lng = event.target.lng.value;
-      const community = event.target.community.value;
+      const ip = stateUpdateForm.ip;
+      const port = stateUpdateForm.port;
+      const name = stateUpdateForm.name;
+      let lat = stateUpdateForm.lat;
+      let lng = stateUpdateForm.lng;
+      const community = stateUpdateForm.community;
       const battery = 'pmv';
   
-      const testIP = event.target.ip.value.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+      const testIP = ip.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
       if (!testIP) {
-        alert('The IP you entered is invalid (IP INVALID)');
+        notificationE('The IP you entered is invalid (IP INVALID)');
         return;
       }
       if (lat.length < 5 || lng.length < 5) {
-        alert('Latitude or Longitude is too short.');
+        notificationE('Latitude or Longitude is too short.');
         return;
       }
       if (name.length > 26) {
-        alert('Name of device too long (max: 26 characters)')
+        notificationE('Name of device too long (max: 26 characters)')
         return;
       }
       if (lat.length >  18 || lng.length > 18) {
-        alert('Latitude or Longitude is too long.');
+        notificationE('Latitude or Longitude is too long.');
         return;
       }
       lat = Number(lat);
       lng = Number(lng);
       if (isNaN(lat) || isNaN(lng)) {
-        alert('Latitude or Longitude must be a number.');
+        notificationE('Latitude or Longitude must be a number.');
         return;
       }
       if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-        alert('You must fill all the field to add a Device.');
+        notificationE('You must fill all the field to add a Device.');
         return;
       }
       const data = {
@@ -148,10 +172,10 @@ function DeviceDetails() {
       }
       const updatedDevice = await DeviceService.updateDevice(device.id, data)
       if (!updatedDevice) {
-        alert('ERROR WHILE UPDATING DEVICE. BACK_END PROBLEM');
+        notificationE('ERROR WHILE UPDATING DEVICE. BACK_END PROBLEM');
         return;
       } else {
-        alert('PMV Device Updated Successfully.');
+        notificationS('PMV Device Updated Successfully.');
         return;
       }
     }
@@ -249,6 +273,22 @@ function DeviceDetails() {
 
   function ModifyEMC () {
 
+    function notificationS (message) {
+      toast.success(message, {
+        position: "top-center",
+        closeOnClick: true,
+        theme: 'dark'
+      });
+    }
+  
+    function notificationE (message) {
+      toast.error(message, {
+        position: "top-center",
+        closeOnClick: true,
+        theme: 'dark'
+      });
+    }
+
     const initialStateUpdateForm = {
       name: device.name,
       ip: device.ip,
@@ -271,35 +311,35 @@ function DeviceDetails() {
 
     async function updateEMC (event) {
       event.preventDefault();
-      const ip = event.target.ip.value;
-      const port = event.target.port.value;
-      const name = event.target.name.value;
-      let lat = event.target.lat.value;
-      let lng = event.target.lng.value;
-      const community = event.target.community.value;
+      const ip = stateUpdateForm.ip;
+      const port = stateUpdateForm.port;
+      const name = stateUpdateForm.name;
+      let lat = stateUpdateForm.lat;
+      let lng = stateUpdateForm.lng;
+      const community = stateUpdateForm.community;
       const battery = event.target.battery.value
   
-      const testIP = event.target.ip.value.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
+      const testIP = ip.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/);
       if (!testIP) {
-        alert('The IP you entered is invalid (IP INVALID)');
+        notificationE('The IP you entered is invalid (IP INVALID)');
         return;
       }
       if (lat.length < 4 || lng.length < 4) {
-        alert('Latitude or Longitude is too short.');
+        notificationE('Latitude or Longitude is too short.');
         return;
       }
       if (lat.length >  18 || lng.length > 18) {
-        alert('Latitude or Longitude is too long.');
+        notificationE('Latitude or Longitude is too long.');
         return;
       }
       lat = Number(lat);
       lng = Number(lng);
       if (isNaN(lat) || isNaN(lng)) {
-        alert('Latitude or Longitude must be a number.');
+        notificationE('Latitude or Longitude must be a number.');
         return;
       }
       if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-        alert('You must fill all the field to add a Device.');
+        notificationE('You must fill all the field to add a Device.');
         return;
       }
       const data = {
@@ -314,10 +354,10 @@ function DeviceDetails() {
     
       const updatedDevice = await DeviceService.updateDevice(device.id, data)
       if (!updatedDevice) {
-        alert('ERROR WHILE UPDATING DEVICE. BACK_END PROBLEM');
+        notificationE('ERROR WHILE UPDATING DEVICE. BACK_END PROBLEM');
         return;
       } else {
-        alert('EMC Device Updated Successfully.');
+        notificationS('EMC Device Updated Successfully.');
         return;
       }
     }

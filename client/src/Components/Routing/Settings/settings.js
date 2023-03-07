@@ -12,6 +12,14 @@ import {
 import { Line } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 
+/*
+No Settings...
+
+This is where I currently test out Charts to eventually show battery data charts of previous day.
+*/
+
+
+
 function Settings() {
 
   ChartJS.register(
@@ -24,7 +32,7 @@ function Settings() {
     Legend
   );
 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = ['7h', '8h', '9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h'];
 
 
   const options = {
@@ -44,16 +52,10 @@ function Settings() {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        label: 'Voltage',
+        data: labels.map(() => faker.datatype.float({ min: 24.6, max: 27.8 })),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };

@@ -17,6 +17,13 @@ import Battery4 from '../../../Assets/battery4.png'
 import PMV from '../../../Assets/pmvicon.png'
 import mapStyles from './mapStyles';
 
+/*
+The Main Page of the App
+
+With a Map where you can see all the device being monitored.
+
+Weather Button on the bottom Left to display real time weather forecast
+*/
 
 
 
@@ -55,13 +62,13 @@ function Main() {
                   PMVService.getLiveData(data[i].id)
                   .then(moredata => {
                     if (!moredata) {
-                      data[i].icon = 0;
+                      data[i].icon = 'pmv';
                       return resolve(data[i]);
                     } else {
                       data[i].voltage = moredata.voltage;
                       data[i].photocell = moredata.photocell;
                       data[i].message = moredata.message;
-                      data[i].icon = 0;
+                      data[i].icon = 'pmv';
                       return resolve(data[i]);
                     }
                   })
@@ -72,25 +79,39 @@ function Main() {
                   EMCService.getLiveData(data[i].id)
                   .then(moredata => {
                     if (!moredata) {
-                      data[i].icon = 'sad';
+                      data[i].icon = 0;
                       return resolve(data[i]);
                     } else {
                       data[i].voltage = moredata.voltage;
                       data[i].temperature = moredata.temperature;
                       data[i].load = moredata.load;
                       data[i].charge = moredata.charge;
-                      if (moredata.voltage < 25) {
-                        data[i].icon = 1;
-            
-                      } else if (moredata.voltage < 25.8) {
-                        data[i].icon = 2;
-            
-                      } else if (moredata.voltage < 26.8) {
-                        data[i].icon = 3;
-            
+                      if (data[i].battery === 'agm') {
+                        if (moredata.voltage < 24.3) {
+                          data[i].icon = 1;
+              
+                        } else if (moredata.voltage < 25) {
+                          data[i].icon = 2;
+              
+                        } else if (moredata.voltage < 26.4) {
+                          data[i].icon = 3;
+              
+                        } else {
+                          data[i].icon = 4;
+                        }
                       } else {
-                        data[i].icon = 4;
-            
+                        if (moredata.voltage < 25) {
+                          data[i].icon = 1;
+              
+                        } else if (moredata.voltage < 25.9) {
+                          data[i].icon = 2;
+              
+                        } else if (moredata.voltage < 26.8) {
+                          data[i].icon = 3;
+              
+                        } else {
+                          data[i].icon = 4;
+                        }
                       }
                       return resolve(data[i])
                     }
@@ -169,29 +190,29 @@ function Main() {
     const defaultCenter = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
     return (
       <div className='AppContainer'>
-              <GoogleMap 
-        zoom={11} 
-        center={defaultCenter} 
-        options={mapOptions}
-        mapContainerClassName="MapContainer" 
-        onLoad={handleOnLoad}
-        onCenterChanged={handleCenterChanged}
-      >
-        <Info 
-          // Trying to send location to give weather data depending on map location
-          location={mapref ? mapref.getCenter : defaultCenter}
-        />
-        {devices.map((device) => 
-          <div key={device.id}>
-            <MarkerF 
-              position={{lat: device.lat, lng: device.lng}} 
-              icon={device.icon === 0 ? PMV : device.icon === 1 ? Battery1 : device.icon === 2 ? Battery2 : device.icon === 3 ? Battery3 : device.icon === 4 ? Battery4 : Battery0} 
-              onClick={() => setDeviceInfo([device.id, device.battery, device.name])}
-            />
-          </div> 
-        )}
-        <DeviceInfo />
-      </GoogleMap>
+        <GoogleMap 
+          zoom={11} 
+          center={defaultCenter} 
+          options={mapOptions}
+          mapContainerClassName="MapContainer" 
+          onLoad={handleOnLoad}
+          onCenterChanged={handleCenterChanged}
+        >
+          <Info 
+            // Trying to send location to give weather data depending on map location
+            location={mapref ? mapref.getCenter : defaultCenter}
+          />
+          {devices.map((device) => 
+            <div key={device.id}>
+              <MarkerF 
+                position={{lat: device.lat, lng: device.lng}} 
+                icon={device.icon === 'pmv' ? PMV : device.icon === 1 ? Battery1 : device.icon === 2 ? Battery2 : device.icon === 3 ? Battery3 : device.icon === 4 ? Battery4 : Battery0} 
+                onClick={() => setDeviceInfo([device.id, device.battery, device.name])}
+              />
+            </div> 
+          )}
+          <DeviceInfo />
+        </GoogleMap>
       </div>
     )
   }

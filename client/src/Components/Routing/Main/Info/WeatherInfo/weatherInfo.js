@@ -14,6 +14,17 @@ import { WiThunderstorm } from "react-icons/wi";
 import { WiSnow } from "react-icons/wi";
 import { WiFog } from "react-icons/wi";
 
+
+/*
+Real time weather forecast. 
+
+Display the cloudiness of the sky (0% means cloudy sky, 100% means clear sky.) for solar powered device
+
+Display also WindSpeed and WindGust for windpower devices
+*/
+
+
+
 function weatherInfo({ weather }) {
 
   function checkIcon (icon) {

@@ -1,5 +1,11 @@
 const URL = 'http://localhost:3030/weather';
 
+/*
+Get Weather Data.
+*/
+
+
+
 export const WeatherService = {
 
   //Get Request

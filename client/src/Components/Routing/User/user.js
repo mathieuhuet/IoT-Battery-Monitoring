@@ -10,6 +10,14 @@ const initialState = {
   lastName: '',
 };
 
+/*
+User Page.
+
+It only display the name of the user.
+
+Also the page where you would logout.
+*/
+
 
 const User = (props) => {
 
