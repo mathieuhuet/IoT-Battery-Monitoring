@@ -1,5 +1,7 @@
 const Devices = require('../Models/device')
-var snmp = require ("net-snmp");
+const snmp = require ("net-snmp");
+const getIndividualDeviceDatabase = require('../Models/individualDeviceData');
+const { Op } = require("sequelize");
 
 const PMVController = {
   getLiveData: async (ctx) => {
@@ -21,6 +23,44 @@ const PMVController = {
         ctx.body = {
           error: true,
           message: 'Cant find device',
+          data: null,
+        }
+      } else {
+        ctx.status = 500;
+        ctx.body = {
+          error: true,
+          message: 'Internal error',
+          data: null,
+        }
+      }
+    }
+  },
+  getPastData: async (ctx) => {
+    try {
+      const { id, date } = ctx.params;
+      const deviceData = getIndividualDeviceDatabase(id, 'pmv')
+      if(!deviceData) throw new Error('PMV PAST DATA NOT FOUND IN DATABASE')
+      const data = await deviceData.findAll({
+        where: {
+          createdAt: {
+            [Op.lt]: new Date(),
+            [Op.gt]: new Date(new Date() - Number(date) * 24 * 60 * 60 * 1000)
+          }
+        }
+      })
+      ctx.status = 200;
+      ctx.body = {
+        error: false,
+        message: 'PMV past Data acquired successfully',
+        data: data,
+      }
+    } catch (error) {
+      console.log('ERROR at getLiveData PMV Controller : ', error);
+      if (error.message === 'PMV PAST DATA NOT FOUND IN DATABASE') {
+        ctx.status = 404;
+        ctx.body = {
+          error: true,
+          message: 'Cant find device data database',
           data: null,
         }
       } else {

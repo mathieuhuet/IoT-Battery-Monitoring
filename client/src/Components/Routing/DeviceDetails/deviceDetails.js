@@ -33,6 +33,7 @@ function DeviceDetails() {
   }, [id]);
   return (
     <div className='AppContainer'>
+      <ToastContainer />
       <div className='DeviceDetails'>
         <div className="DeviceDetailsLeft">
           <div className='GoBack' onClick={goBack}>

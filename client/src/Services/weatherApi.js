@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3030/weather';
+const URL = 'http://10.8.0.11:3030/weather';
 
 /*
 Get Weather Data.

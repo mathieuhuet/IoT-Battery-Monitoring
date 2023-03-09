@@ -7,7 +7,7 @@ import Main from './Main/main'
 import List from './List/list'
 import AddDevice from './AddDevice/addDevice'
 import DeviceDetails from './DeviceDetails/deviceDetails';
-import Settings from './Settings/settings'
+import Monitoring from './Monitoring/monitoring';
 
 const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
@@ -36,8 +36,8 @@ const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
           element={<AddDevice />} 
         />
         <Route 
-          path="/settings" 
-          element={<Settings />} 
+          path="/monitoring" 
+          element={<Monitoring />} 
         />
         <Route 
           path="/device/:prev/:id" 

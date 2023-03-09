@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3030';
+const BASE_URL = 'http://10.8.0.11:3030';
 
 /*
 Login service.

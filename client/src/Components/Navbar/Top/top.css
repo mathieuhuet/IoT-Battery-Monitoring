@@ -71,7 +71,7 @@
   border: 3px solid black;
 }
 
-.Setting {
+.Monitor {
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -82,12 +82,12 @@
   font-size: 36px;
 }
 
-.Setting:hover {
+.Monitor:hover {
   background-color: rgb(27, 65, 27);
   cursor: pointer;
 }
 
-.Setting:active {
+.Monitor:active {
   height: 94px;
   width: 94px;
   border: 3px solid black;

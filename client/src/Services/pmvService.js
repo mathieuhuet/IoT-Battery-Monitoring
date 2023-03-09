@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3030/pmv';
+const URL = 'http://10.8.0.11:3030/pmv';
 
 /*
 Get Live data for PMV device.
@@ -18,6 +18,30 @@ export const PMVService = {
       return response.data;
     } catch (error) {
       console.log(`Error in getLiveData service function : ${error}`);
+    }
+  },
+  getPastData: async (id, date, value) => {
+    try {
+      const liveData = await fetch(`${URL}/data/${id}/${date}`);
+      const response = await liveData.json();
+      if (response.error) {
+        throw new Error(response.message);
+      }
+      const pastData = {
+        time: [],
+        values: []
+      }
+      for (let i = 0; i < response.data.length; i++) {
+        pastData.time.push(new Date(response.data[i].createdAt).toLocaleDateString().slice(0, 5) + ' ' + new Date(response.data[i].createdAt).toLocaleTimeString().slice(0, 5));
+        pastData.values.push(response.data[i][value]);
+      }
+      return pastData;
+    } catch (error) {
+      console.log(`Error in getPastData service function : ${error}`)
+      return {
+        time: [],
+        values: []
+      }
     }
   },
 }

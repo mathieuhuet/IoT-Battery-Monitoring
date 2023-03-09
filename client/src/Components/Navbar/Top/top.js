@@ -25,8 +25,8 @@ function Top({ isAuthenticated }) {
             <BiAddToQueue />
           </div>
         </Link>
-        <Link to="/settings">
-          <div className="Setting">
+        <Link to="/monitoring">
+          <div className="Monitor">
             <VscGraphLine />
           </div>
         </Link>
@@ -44,7 +44,7 @@ function Top({ isAuthenticated }) {
         <div className="Add">
           <BiAddToQueue />
         </div>
-        <div className="Setting">
+        <div className="Monitor">
           <VscGraphLine />
         </div>
       </div>

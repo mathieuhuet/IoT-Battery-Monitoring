@@ -24,4 +24,7 @@ router.post('/logout', authMiddleware, user.logout);
 router.get('/emc/:id', emc.getLiveData);
 router.get('/pmv/:id', pmv.getLiveData);
 
+router.get('/emc/data/:id/:date', emc.getPastData);
+router.get('/pmv/data/:id/:date', pmv.getPastData);
+
 module.exports = router;
