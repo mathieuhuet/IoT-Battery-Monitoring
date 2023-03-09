@@ -5,10 +5,12 @@
 This is an app that monitors the battery data of two IoT devices.
 
 This variable display :
-![](client/public/favicon.png)
+
+![](client/public/pmv.jpg)
 
 And this traffic data collector : 
-![](client/public/favicon.png)
+
+![](client/public/emc.jpg)
 
 You can view the live state of the battery and also a graph of past data to monitor the batteries behavior.
 
