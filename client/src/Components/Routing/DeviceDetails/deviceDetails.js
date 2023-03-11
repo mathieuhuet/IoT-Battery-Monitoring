@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EMCLiveData from '../../LiveData/emcLiveData';
 import PMVLiveData from '../../LiveData/pmvLiveData';
 import PMV from '../../../Assets/pmvicon.png'
-import Charts from '../../Charts/charts';
+import MultiCharts from '../../Charts/multiCharts';
 
 
 /*
@@ -21,7 +21,8 @@ You can also delete the device.
 
 function DeviceDetails() {
   const { prev, id } = useParams();
-  const [device, setDevice] = useState([]);
+  const [ device, setDevice ] = useState([]);
+  const [ devicePage, setDevicePage ] = useState('graph');
   let navigate = useNavigate();
 
 
@@ -38,74 +39,99 @@ function DeviceDetails() {
       <ToastContainer />
       <div className='DeviceDetails'>
         <div className='DeviceDetailsTop'>
-          <div className='DeviceDetailsTopLeft'>
-            <div className='GoBack' onClick={goBack}>
-              <BsArrowLeftShort />
-            </div>
-            <div className='GraphSettings'>
-              <FormControl>
-                <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-                <RadioGroup
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="female"
-                  name="radio-buttons-group"
-                >
-                  <FormControlLabel value="female" control={<Radio />} label="Female" />
-                  <FormControlLabel value="male" control={<Radio />} label="Male" />
-                  <FormControlLabel value="other" control={<Radio />} label="Other" />
-                </RadioGroup>
-              </FormControl>
-            </div>
+          <div className='GoBack' onClick={goBack}>
+            <BsArrowLeftShort />
           </div>
-          <div className='DeviceDetailsGraph'>
-            <Charts 
-              id={device.id}
-              battery={device.battery}
-              date={2}
-              value={'voltage'}
-            />
+          <div className='GoGraph Tab' onClick={goGraph}>
+            Graph
+          </div>
+          <div className='GoLiveData Tab' onClick={goLiveData}>
+            Live Data
+          </div>
+          <div className='GoMore Tab' onClick={goMore}>
+            More
           </div>
         </div>
         <div className='DeviceDetailsBottom'>
-          <div className="DeviceDetailsLeft">
-            <div className='ModifyDeviceDetails'>
-              {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
-            </div>
-          </div>
-          <div className='DeviceDetailsRight'>
-            <div className='DeviceDetailsInfo'>
-              <div className='DeviceDetailsInfoTitle'>Created by</div>
-              <div className='DeviceDetailsInfoData'>
-                {device.createdBy}
-              </div>
-              <br />
-              <div className='DeviceDetailsInfoTitle'>Created at</div>
-              <div className='DeviceDetailsInfoData'>
-                {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
-              </div>
-              <br />
-              <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
-              <div className='DeviceDetailsInfoData'>
-                {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
-              </div>
-            </div>
-            <div className='DeviceDetailsData'>
-              {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
-            </div>
-            <div className='DeleteDevice' onClick={deleteDevice}>
-              {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
-            </div>
-          </div>
+          {devicePage === 'graph' ? <GraphDevice /> : devicePage === 'live' ? <LiveDataDevice /> : devicePage === 'more' ? <MoreInfoDevice /> : <GraphDevice />}
         </div>
       </div>
     </div>
   );
+
+  function goGraph () {
+    setDevicePage('graph')
+  }
+
+  function goLiveData () {
+    setDevicePage('live')
+  }
+
+  function goMore () {
+    setDevicePage('more')
+  }
+
+  function GraphDevice () {
+    return (
+      <div className='GraphDeviceDetails'>
+        <MultiCharts 
+          id={device.id}
+          battery={device.battery}
+          date={1}
+          value={'voltage'}
+        />
+      </div>
+    )
+  }
+
+  function LiveDataDevice () {
+    return (
+      <div className='DeviceDetailsData'>
+        {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
+      </div>
+    )
+  }
+
+  function MoreInfoDevice () {
+    return (
+      <div className='DeviceMoreInfo'>
+        <div className="DeviceDetailsLeft">
+          <div className='ModifyDeviceDetails'>
+            {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
+          </div>
+        </div>
+        <div className='DeviceDetailsRight'>
+          <div className='DeviceDetailsInfo'>
+            <div className='DeviceDetailsInfoTitle'>Created by</div>
+            <div className='DeviceDetailsInfoData'>
+              {device.createdBy}
+            </div>
+            <br />
+            <div className='DeviceDetailsInfoTitle'>Created at</div>
+            <div className='DeviceDetailsInfoData'>
+              {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
+            </div>
+            <br />
+            <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
+            <div className='DeviceDetailsInfoData'>
+              {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
+            </div>
+          </div>
+          <div className='DeleteDevice' onClick={deleteDevice}>
+            {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   function goBack () {
     if (prev === 'id') {
       navigate('/');
     } else if (prev === 'devices') {
       navigate('/devices');
+    } else if (prev === 'monitoring') {
+      navigate('/monitoring');
     }
   }
 
@@ -115,6 +141,8 @@ function DeviceDetails() {
       navigate('/');
     } else if (prev === 'devices') {
       navigate('/devices');
+    } else if (prev === 'monitoring') {
+      navigate('/monitoring');
     }
   }
 
@@ -189,7 +217,7 @@ function DeviceDetails() {
         return;
       }
       if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-        notificationE('You must fill all the field to add a Device.');
+        notificationE('You must fill all the field to update a Device.');
         return;
       }
       const data = {
@@ -370,7 +398,7 @@ function DeviceDetails() {
         return;
       }
       if (!ip || !port || !name || !lat || !lng || !battery || !community) {
-        notificationE('You must fill all the field to add a Device.');
+        notificationE('You must fill all the field to update a Device.');
         return;
       }
       const data = {

@@ -149,7 +149,7 @@ function Monitoring() {
       <div className='GraphList'>
         {emc.map((device) => 
           <div key={device.id}>
-          <Link to={'/device/devices/' + device.id}>
+          <Link to={'/device/monitoring/' + device.id}>
             <div className='ChartMonitoring' >
               <Charts
                 id={device.id}
@@ -171,7 +171,7 @@ function Monitoring() {
       <div className='GraphList'>
         {pmv.map((device) =>
           <div key={device.id}>
-            <Link to={'/device/devices/' + device.id}>
+            <Link to={'/device/monitoring/' + device.id}>
               <div className='ChartMonitoring'>
                 <Charts
                   id={device.id}

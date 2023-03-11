@@ -53,6 +53,39 @@
   box-shadow: 1px 1px black;
 }
 
+.Tab {
+  height: 70px;
+  border-radius: 15px;
+  margin: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  text-shadow: 3px 3px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  background: #0d9c65;
+  background: -webkit-linear-gradient(#0d9c65, #036d44);
+  background: -o-linear-gradient(#0d9c65, #036d44);
+  background: -moz-linear-gradient(#0d9c65, #036d44);
+  background: linear-gradient(#0d9c65, #036d44);
+}
+
+.Tab:hover {
+  cursor: pointer;
+  background: #08583a;
+  background: -webkit-linear-gradient(#08583a, #004128);
+  background: -o-linear-gradient(#08583a, #004128);
+  background: -moz-linear-gradient(#08583a, #004128);
+  background: linear-gradient(#08583a, #004128);
+}
+
+.Tab:active {
+  box-shadow: 1px 1px black;
+}
+
 /* Most of ModifyDeviceDetails Attribute are in addDevice */
 .ModifyDeviceDetails {
   margin-top: -20px;
@@ -90,6 +123,7 @@
   box-shadow: 4px 4px black;
   padding: 30px;
   margin: 40px;
+  height: 25vh;
   background: #33883f;
   background: -webkit-linear-gradient(#33883f, #2f7c33);
   background: -o-linear-gradient(#33883f, #2f7c33);
@@ -130,11 +164,12 @@
   text-shadow: 0px 0px black;
 }
 
-.DeviceDetailsGraph {
+.DeviceDetailsBottom {
   border-radius: 15px;
   border: 2px solid black;
   box-shadow: 4px 4px black;
-  width: 80vw;
+  width: 85vw;
+  height: 75vh;
   padding: 30px;
   margin: 40px;
   background: #a3caa8;
@@ -142,4 +177,13 @@
   background: -o-linear-gradient(#a3caa8, #5ed164);
   background: -moz-linear-gradient(#a3caa8, #5ed164);
   background: linear-gradient(#a3caa8, #5ed164);
+}
+
+.DeviceMoreInfo {
+  display: flex;
+}
+
+.GraphDeviceDetails {
+  width: 80vw;
+
 }
