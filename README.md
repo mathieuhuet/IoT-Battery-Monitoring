@@ -35,7 +35,7 @@ The database and the server must be running for the cronjob to work properly.
 
 Start the server from the `/server` folder with `npx nodemon index.js`
 
-Before starting the client side, verify that the first line in all five files in the `client/src/Services` folder are assigned the right IP address (remove this line when done developing and change the first line of those 5 files to `'http://10.8.0.11:3030/emc'`)
+Before starting the client side, verify that the first line in all five files in the `client/src/Services` folder are assigned the right IP address (this is only while this app is in development)
 
 Start the client side with `npm start`
 
