@@ -2,12 +2,14 @@ import './deviceDetails.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BsArrowLeftShort } from "react-icons/bs";
+import { Radio, RadioGroup, FormLabel, FormControlLabel, FormControl } from '@mui/material';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EMCLiveData from '../../LiveData/emcLiveData';
 import PMVLiveData from '../../LiveData/pmvLiveData';
 import PMV from '../../../Assets/pmvicon.png'
+import Charts from '../../Charts/charts';
 
 
 /*
@@ -35,36 +37,64 @@ function DeviceDetails() {
     <div className='AppContainer'>
       <ToastContainer />
       <div className='DeviceDetails'>
-        <div className="DeviceDetailsLeft">
-          <div className='GoBack' onClick={goBack}>
-            <BsArrowLeftShort />
+        <div className='DeviceDetailsTop'>
+          <div className='DeviceDetailsTopLeft'>
+            <div className='GoBack' onClick={goBack}>
+              <BsArrowLeftShort />
+            </div>
+            <div className='GraphSettings'>
+              <FormControl>
+                <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="female"
+                  name="radio-buttons-group"
+                >
+                  <FormControlLabel value="female" control={<Radio />} label="Female" />
+                  <FormControlLabel value="male" control={<Radio />} label="Male" />
+                  <FormControlLabel value="other" control={<Radio />} label="Other" />
+                </RadioGroup>
+              </FormControl>
+            </div>
           </div>
-          <div className='ModifyDeviceDetails'>
-            {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
+          <div className='DeviceDetailsGraph'>
+            <Charts 
+              id={device.id}
+              battery={device.battery}
+              date={2}
+              value={'voltage'}
+            />
           </div>
         </div>
-        <div className='DeviceDetailsRight'>
-          <div className='DeviceDetailsInfo'>
-            <div className='DeviceDetailsInfoTitle'>Created by</div>
-            <div className='DeviceDetailsInfoData'>
-              {device.createdBy}
-            </div>
-            <br />
-            <div className='DeviceDetailsInfoTitle'>Created at</div>
-            <div className='DeviceDetailsInfoData'>
-              {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
-            </div>
-            <br />
-            <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
-            <div className='DeviceDetailsInfoData'>
-              {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
+        <div className='DeviceDetailsBottom'>
+          <div className="DeviceDetailsLeft">
+            <div className='ModifyDeviceDetails'>
+              {device.battery === 'pmv' ? <ModifyPMV /> : <ModifyEMC />}
             </div>
           </div>
-          <div className='DeviceDetailsData'>
-            {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
-          </div>
-          <div className='DeleteDevice' onClick={deleteDevice}>
-            {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
+          <div className='DeviceDetailsRight'>
+            <div className='DeviceDetailsInfo'>
+              <div className='DeviceDetailsInfoTitle'>Created by</div>
+              <div className='DeviceDetailsInfoData'>
+                {device.createdBy}
+              </div>
+              <br />
+              <div className='DeviceDetailsInfoTitle'>Created at</div>
+              <div className='DeviceDetailsInfoData'>
+                {new Date(device.createdAt).toLocaleDateString()}{' ' + new Date(device.createdAt).toLocaleTimeString()}
+              </div>
+              <br />
+              <div className='DeviceDetailsInfoTitle'>Last Updated at</div>
+              <div className='DeviceDetailsInfoData'>
+                {new Date(device.updatedAt).toLocaleDateString()}{' ' + new Date(device.updatedAt).toLocaleTimeString()}
+              </div>
+            </div>
+            <div className='DeviceDetailsData'>
+              {device.battery === 'pmv' ? <PMVLiveData id={device.id} /> : <EMCLiveData id={device.id} />}
+            </div>
+            <div className='DeleteDevice' onClick={deleteDevice}>
+              {device.battery === 'pmv' ? 'DELETE PMV' : 'DELETE EMC'}
+            </div>
           </div>
         </div>
       </div>

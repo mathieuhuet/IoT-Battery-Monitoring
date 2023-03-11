@@ -87,26 +87,26 @@ function Main() {
                       data[i].load = moredata.load;
                       data[i].charge = moredata.charge;
                       if (data[i].battery === 'agm') {
-                        if (moredata.voltage < 24.3) {
+                        if (moredata.voltage < 24.5) {
                           data[i].icon = 1;
               
-                        } else if (moredata.voltage < 25) {
+                        } else if (moredata.voltage < 25.4) {
                           data[i].icon = 2;
               
-                        } else if (moredata.voltage < 26.4) {
+                        } else if (moredata.voltage < 26.8) {
                           data[i].icon = 3;
               
                         } else {
                           data[i].icon = 4;
                         }
                       } else {
-                        if (moredata.voltage < 25) {
+                        if (moredata.voltage < 25.5) {
                           data[i].icon = 1;
               
-                        } else if (moredata.voltage < 25.9) {
+                        } else if (moredata.voltage < 26) {
                           data[i].icon = 2;
               
-                        } else if (moredata.voltage < 26.8) {
+                        } else if (moredata.voltage < 26.9) {
                           data[i].icon = 3;
               
                         } else {

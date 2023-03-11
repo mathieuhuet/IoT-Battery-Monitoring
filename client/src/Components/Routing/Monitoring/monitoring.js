@@ -14,7 +14,7 @@ function Monitoring() {
     <div className='AppContainer'>
       <div className="Monitoring">
         <Charts
-          id={22}
+          id={11}
           battery={'lithium'}
           date={2}
           value={'voltage'}

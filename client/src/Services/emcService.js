@@ -9,6 +9,9 @@ export const EMCService = {
 
   //Get Request
   getLiveData: async (id) => {
+    if (!id) {
+      return
+    }
     try {
       const liveData = await fetch(`${URL}/${id}`);
       const response = await liveData.json();
@@ -21,6 +24,12 @@ export const EMCService = {
     }
   },
   getPastData: async (id, date, value) => {
+    if (!id || !date || !value) {
+      return {
+        time: [],
+        values: []
+      }
+    }
     try {
       const liveData = await fetch(`${URL}/data/${id}/${date}`);
       const response = await liveData.json();

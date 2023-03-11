@@ -17,8 +17,6 @@ import { PMVService } from '../../Services/pmvService';
 import { useEffect, useState } from 'react';
 
 /*
-No Settings...
-
 This is where I currently test out Charts to eventually show battery data charts of previous day.
 */
 
@@ -66,9 +64,26 @@ function Charts({ id, battery, date, value }) {
 
     const options = {
       responsive: true,
+      color: 'rgb(0, 0, 0)',
+      scales: {
+        x: {
+          ticks: {
+            color: "black"
+          }
+        },
+        y: {
+          ticks: {
+            color: "black"
+          }
+        }
+      },
       plugins: {
         legend: {
           position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Chart.js Line Chart',
         },
       },
     };
@@ -77,7 +92,7 @@ function Charts({ id, battery, date, value }) {
       labels: times,
       datasets: [
         {
-          label: 'Voltage',
+          label: value,
           data: values,
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -87,14 +102,12 @@ function Charts({ id, battery, date, value }) {
       ],
     }
     return (
-      <div className='AppContainer'>
-        {console.log(data)}
-        <div className="Charts">
-          <Line 
-            options={options} 
-            data={data}
-           />
-        </div>
+      <div className="Charts">
+      {console.log(data)}
+        <Line 
+          options={options} 
+          data={data}
+          />
       </div>
     );
   }

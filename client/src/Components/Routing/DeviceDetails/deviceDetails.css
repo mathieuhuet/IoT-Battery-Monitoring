@@ -1,6 +1,15 @@
 .DeviceDetails {
   display: flex;
+  flex-direction: column;
   width: calc(100% - 100px);
+}
+
+.DeviceDetailsTop {
+  display: flex;
+}
+
+.DeviceDetailsBottom {
+  display: flex;
 }
 
 .DeviceDetailsLeft {
@@ -119,4 +128,18 @@
 .DeleteDevice:active {
   box-shadow: 1px 1px black;
   text-shadow: 0px 0px black;
+}
+
+.DeviceDetailsGraph {
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  width: 80vw;
+  padding: 30px;
+  margin: 40px;
+  background: #a3caa8;
+  background: -webkit-linear-gradient(#a3caa8, #5ed164);
+  background: -o-linear-gradient(#a3caa8, #5ed164);
+  background: -moz-linear-gradient(#a3caa8, #5ed164);
+  background: linear-gradient(#a3caa8, #5ed164);
 }
