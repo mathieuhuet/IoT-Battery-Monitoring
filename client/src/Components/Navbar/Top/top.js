@@ -15,6 +15,11 @@ function Top({ isAuthenticated }) {
             <AiOutlineHome />
           </div>
         </Link>
+        <Link to="/monitoring">
+          <div className="Monitor">
+            <VscGraphLine />
+          </div>
+        </Link>
         <Link to="/devices">
           <div className="Devices">
             <VscListUnordered />
@@ -23,11 +28,6 @@ function Top({ isAuthenticated }) {
         <Link to="/add">
           <div className="Add">
             <BiAddToQueue />
-          </div>
-        </Link>
-        <Link to="/monitoring">
-          <div className="Monitor">
-            <VscGraphLine />
           </div>
         </Link>
       </div>

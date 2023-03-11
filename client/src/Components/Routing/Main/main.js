@@ -106,7 +106,7 @@ function Main() {
                         } else if (moredata.voltage < 26) {
                           data[i].icon = 2;
               
-                        } else if (moredata.voltage < 26.9) {
+                        } else if (moredata.voltage < 26.8) {
                           data[i].icon = 3;
               
                         } else {

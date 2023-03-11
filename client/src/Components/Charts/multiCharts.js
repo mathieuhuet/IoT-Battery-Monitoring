@@ -22,7 +22,7 @@ This is where I currently test out Charts to eventually show battery data charts
 
 
 
-function Charts({ id, battery, date, value, title }) {
+function MultiCharts({ id, battery, date, value }) {
 
   const [ values, setValues ] = useState([]);
   const [ times, setTimes ] = useState([]);
@@ -83,12 +83,7 @@ function Charts({ id, battery, date, value, title }) {
         },
         title: {
           display: true,
-          text: title,
-          font: {
-            size: 24,
-            weight: 'bold',
-          },
-          color: 'black',
+          text: 'Chart.js Line Chart',
         },
       },
     };
@@ -126,4 +121,4 @@ function Charts({ id, battery, date, value, title }) {
   }
 }
 
-export default Charts;
+export default MultiCharts;

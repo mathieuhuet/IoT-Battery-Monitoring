@@ -1,3 +1,69 @@
 .Monitoring {
   width: calc(100% - 100px);
 }
+
+.TopOptions {
+  display: flex;
+}
+
+.GraphOptions {
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 20px;
+  margin: 30px;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
+.SliderOption {
+  width: 300px;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 20px;
+  margin: 30px;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
+.ChartMonitoring {
+  width: 40vw;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 20px;
+  margin: 30px;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
+.ChartMonitoring:hover {
+  background: #3d9b9b;
+  background: -webkit-linear-gradient(#3d9b9b, #265c69);
+  background: -o-linear-gradient(#3d9b9b, #265c69);
+  background: -moz-linear-gradient(#3d9b9b, #265c69);
+  background: linear-gradient(#3d9b9b, #265c69);
+}
+
+.ChartMonitoring:active {
+  box-shadow: 1px 2px black;
+}
+
+.GraphList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
