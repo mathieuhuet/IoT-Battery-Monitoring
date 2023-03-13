@@ -29,7 +29,7 @@ To install the required dependencies, you're gonna run `npm install` in all thre
 
 For this app to work properly you need to add cronjobs to your ubuntu server.
 - open a terminal and type `crontab -e`
-- on the last line of the file add this line `*/10 * * * * node pathToThisProject/IoT-Battery-Monitoring/cronjob/feedDataToDatabase.js`
+- on the last line of the file add this line `*/10 * * * * node pathToThisProject/IoT-Battery-Monitoring/cronjob/index.js`
 
 The database and the server must be running for the cronjob to work properly.
 
