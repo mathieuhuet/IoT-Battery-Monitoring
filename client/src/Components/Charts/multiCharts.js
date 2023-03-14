@@ -28,45 +28,38 @@ function MultiCharts({ id, name, battery, date, value }) {
   const [ graphDatasets, setGraphDatasets ] = useState([]);
   const [ times, setTimes ] = useState([]);
 
+
+  //Add every device passed in arguments to the graph
   useEffect(() => {
     let result = [];
     if (battery === 'pmv') {
-      PMVService.getPastData(id[0], date, value)
-      .then((response) => {
-        setTimes(response.time);
-      })
       for (let i = 0; i < id.length; i++) {
         PMVService.getPastData(id[i], date, value)
         .then((response) => {
+          setTimes(response.time);
           result.push({
             label: name[i],
             data: response.values,
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
             tension: 0.1,
             fill: 'origin',
           })
-        })
+        }).then(() => setGraphDatasets(result));
       }
     } else {
-      EMCService.getPastData(id[0], date, value)
-      .then((response) => {
-        setTimes(response.time);
-      })
       for (let i = 0; i < id.length; i++) {
         EMCService.getPastData(id[i], date, value)
         .then((response) => {
+          setTimes(response.time);
           result.push({
             label: name[i],
             data: response.values,
             tension: 0.1,
-            fill: 'origin',
+            borderWidth: 3,
           })
-        })
+        }).then(() => setGraphDatasets(result));
       }
     }
-    setGraphDatasets(result);
-  }, [id, date, battery, value]);
+  }, [battery, date, id, name, value]);
 
   return (
     <div>
@@ -128,7 +121,6 @@ function MultiCharts({ id, name, battery, date, value }) {
     }
     return (
       <div className="Charts">
-        {console.log(graphDatasets, 'MATHIEU')}
         <Line 
           options={options} 
           data={data}
@@ -144,6 +136,7 @@ function MultiCharts({ id, name, battery, date, value }) {
       </div>
     );
   }
+
 }
 
 export default MultiCharts;

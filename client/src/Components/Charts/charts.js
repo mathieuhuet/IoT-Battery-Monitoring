@@ -108,7 +108,6 @@ function Charts({ id, battery, date, value, title }) {
     }
     return (
       <div className="Charts">
-      {console.log(data)}
         <Line 
           options={options} 
           data={data}

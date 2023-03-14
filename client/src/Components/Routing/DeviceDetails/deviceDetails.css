@@ -194,11 +194,11 @@
   padding: 40px;
   margin: 40px;
   margin-top: 1px;
-  background: #a3caa8;
-  background: -webkit-linear-gradient(#a3caa8, #5ed164);
-  background: -o-linear-gradient(#a3caa8, #5ed164);
-  background: -moz-linear-gradient(#a3caa8, #5ed164);
-  background: linear-gradient(#a3caa8, #5ed164);
+  background: #e2ffe6;
+  background: -webkit-linear-gradient(#e2ffe6, #b4f0b7);
+  background: -o-linear-gradient(#e2ffe6, #b4f0b7);
+  background: -moz-linear-gradient(#e2ffe6, #b4f0b7);
+  background: linear-gradient(#e2ffe6, #b4f0b7);
 }
 
 .DeviceMoreInfo {
@@ -223,11 +223,11 @@
   margin-right: 20px;
   padding: 20px;
   color: black;
-  background: #c9f5cf;
-  background: -webkit-linear-gradient(#c9f5cf, #91b192);
-  background: -o-linear-gradient(#c9f5cf, #91b192);
-  background: -moz-linear-gradient(#c9f5cf, #91b192);
-  background: linear-gradient(#c9f5cf, #91b192);
+  background: #d0eed4;
+  background: -webkit-linear-gradient(#d0eed4, #b0ceb1);
+  background: -o-linear-gradient(#d0eed4, #b0ceb1);
+  background: -moz-linear-gradient(#d0eed4, #b0ceb1);
+  background: linear-gradient(#d0eed4, #b0ceb1);
 }
 
 .GraphDeviceDetailsDateSlider {
@@ -238,11 +238,11 @@
   padding: 20px;
   margin-right: 20px;
   color: black;
-  background: #c9f5cf;
-  background: -webkit-linear-gradient(#c9f5cf, #91b192);
-  background: -o-linear-gradient(#c9f5cf, #91b192);
-  background: -moz-linear-gradient(#c9f5cf, #91b192);
-  background: linear-gradient(#c9f5cf, #91b192);
+  background: #d0eed4;
+  background: -webkit-linear-gradient(#d0eed4, #b0ceb1);
+  background: -o-linear-gradient(#d0eed4, #b0ceb1);
+  background: -moz-linear-gradient(#d0eed4, #b0ceb1);
+  background: linear-gradient(#d0eed4, #b0ceb1);
 }
 
 .GraphAddDevice {

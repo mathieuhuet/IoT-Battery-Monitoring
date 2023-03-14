@@ -30,18 +30,6 @@ function DeviceDetails() {
     }
   }, [id]);
 
-  const [ dataType, setDataType ] = useState('voltage');
-  const handleChangeDataType = (event) => {
-    const { value } = event.target;
-    setDataType(value);
-  };
-
-  const [ dataTime, setDataTime ] = useState(1);
-  const handleChangeDataTime = (event) => {
-    const { value } = event.target;
-    setDataTime(value);
-  };
-
 
   return (
     <div className='AppContainer'>
@@ -101,6 +89,18 @@ function DeviceDetails() {
 
   function GraphDevice () {
 
+    const [ dataType, setDataType ] = useState('voltage');
+    const handleChangeDataType = (event) => {
+      const { value } = event.target;
+      setDataType(value);
+    };
+  
+    const [ dataTime, setDataTime ] = useState(1);
+    const handleChangeDataTime = (event) => {
+      const { value } = event.target;
+      setDataTime(value);
+    };
+
     const [deviceList, setDeviceList] = useState([]);
     const [graphedDevice, setGraphedDevice] = useState({ id: [device.id], name: [device.name]});
 
@@ -111,15 +111,23 @@ function DeviceDetails() {
           let deviceArray = [];
           for (let i = 0; i < data.length; i++) {
             if (device.battery === 'pmv' && data[i].battery === 'pmv') {
-              if (data[i].id === device.id) {
-
-              } else {
+              let bool = true;
+              for (let j = 0; j < graphedDevice.id.length; j++) {
+                if (graphedDevice.id[j] === data[i].id) {
+                  bool = false;
+                }
+              }
+              if (bool) {
                 deviceArray.push(data[i]);
               }
             } else if (device.battery !== 'pmv' && data[i].battery !== 'pmv') {
-              if (data[i].id === device.id) {
-
-              } else {
+              let bool = true;
+              for (let j = 0; j < graphedDevice.id.length; j++) {
+                if (graphedDevice.id[j] === data[i].id) {
+                  bool = false;
+                }
+              }
+              if (bool) {
                 deviceArray.push(data[i]);
               }
             }
@@ -127,7 +135,7 @@ function DeviceDetails() {
           setDeviceList(sortByName(deviceArray));
         }
       })
-    }, []);
+    }, [graphedDevice.id]);
     return (
       <div className='GraphDeviceDetails'>
         <div className='GraphDeviceDetailsTop'>
@@ -195,7 +203,11 @@ function DeviceDetails() {
       )
             
       function addDeviceToGraph (addedID, addedName) {
-        setGraphedDevice({ id: graphedDevice.id.concat(addedID), name: graphedDevice.name.concat(addedName)})
+        if (graphedDevice.id.length >= 7) {
+          //do nothing
+        } else {
+          setGraphedDevice({ id: graphedDevice.id.concat(addedID), name: graphedDevice.name.concat(addedName)})
+        }
       }
     }
 

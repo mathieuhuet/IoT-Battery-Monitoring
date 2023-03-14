@@ -42,7 +42,11 @@ export const PMVService = {
       }
       for (let i = 0; i < response.data.length; i++) {
         pastData.time.push(new Date(response.data[i].createdAt).toLocaleDateString().slice(0, 5) + ' ' + new Date(response.data[i].createdAt).toLocaleTimeString().slice(0, 5));
-        pastData.values.push(response.data[i][value]);
+        if (value === 'message') {
+          pastData.values.push(response.data[i][value].slice(0, -4));
+        } else {
+          pastData.values.push(response.data[i][value]);
+        }
       }
       return pastData;
     } catch (error) {
