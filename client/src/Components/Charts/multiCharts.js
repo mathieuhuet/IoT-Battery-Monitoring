@@ -9,7 +9,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  Colors
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { EMCService } from '../../Services/emcService';
@@ -22,30 +23,54 @@ This is where I currently test out Charts to eventually show battery data charts
 
 
 
-function MultiCharts({ id, battery, date, value }) {
+function MultiCharts({ id, name, battery, date, value }) {
 
-  const [ values, setValues ] = useState([]);
+  const [ graphDatasets, setGraphDatasets ] = useState([]);
   const [ times, setTimes ] = useState([]);
 
   useEffect(() => {
+    let result = [];
     if (battery === 'pmv') {
-      PMVService.getPastData(id, date, value)
+      PMVService.getPastData(id[0], date, value)
       .then((response) => {
         setTimes(response.time);
-        setValues(response.values);
       })
+      for (let i = 0; i < id.length; i++) {
+        PMVService.getPastData(id[i], date, value)
+        .then((response) => {
+          result.push({
+            label: name[i],
+            data: response.values,
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            tension: 0.1,
+            fill: 'origin',
+          })
+        })
+      }
     } else {
-      EMCService.getPastData(id, date, value)
+      EMCService.getPastData(id[0], date, value)
       .then((response) => {
         setTimes(response.time);
-        setValues(response.values);
       })
+      for (let i = 0; i < id.length; i++) {
+        EMCService.getPastData(id[i], date, value)
+        .then((response) => {
+          result.push({
+            label: name[i],
+            data: response.values,
+            tension: 0.1,
+            fill: 'origin',
+          })
+        })
+      }
     }
+    setGraphDatasets(result);
   }, [id, date, battery, value]);
 
   return (
     <div>
-      {values.length === 0 ? <LoadingData /> : <RenderChart />}
+      {graphDatasets.length === 0 ? <LoadingData /> : <RenderChart />}
     </div>
   )
 
@@ -59,7 +84,8 @@ function MultiCharts({ id, battery, date, value }) {
       Title,
       Tooltip,
       Legend, 
-      Filler
+      Filler,
+      Colors
     );
 
     const options = {
@@ -83,27 +109,26 @@ function MultiCharts({ id, battery, date, value }) {
         },
         title: {
           display: true,
-          text: 'Chart.js Line Chart',
+          text: value.charAt(0).toUpperCase() + value.slice(1),
+          font: {
+            size: 20,
+            weight: 'bold',
+          },
+          color: 'black',
+        },
+        colors: {
+          enabled: true,
         },
       },
     };
   
     const data = {
       labels: times,
-      datasets: [
-        {
-          label: value,
-          data: values,
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          tension: 0.1,
-          fill: 'origin',
-        },
-      ],
+      datasets: graphDatasets,
     }
     return (
       <div className="Charts">
-      {console.log(data)}
+        {console.log(graphDatasets, 'MATHIEU')}
         <Line 
           options={options} 
           data={data}

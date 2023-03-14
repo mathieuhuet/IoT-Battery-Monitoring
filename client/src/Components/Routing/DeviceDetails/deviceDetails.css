@@ -53,12 +53,34 @@
   box-shadow: 1px 1px black;
 }
 
-.Tab {
+.DeviceDetailsName {
   height: 70px;
   border-radius: 15px;
   margin: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  background: #f6fffc;
+  background: -webkit-linear-gradient(#f6fffc, #defff2);
+  background: -o-linear-gradient(#f6fffc, #defff2);
+  background: -moz-linear-gradient(#f6fffc, #defff2);
+  background: linear-gradient(#f6fffc, #defff2);
+}
+
+.Tab {
+  height: 70px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   border: 2px solid black;
   box-shadow: 4px 4px black;
   text-shadow: 3px 3px black;
@@ -169,9 +191,9 @@
   border: 2px solid black;
   box-shadow: 4px 4px black;
   width: 85vw;
-  height: 75vh;
-  padding: 30px;
+  padding: 40px;
   margin: 40px;
+  margin-top: 1px;
   background: #a3caa8;
   background: -webkit-linear-gradient(#a3caa8, #5ed164);
   background: -o-linear-gradient(#a3caa8, #5ed164);
@@ -185,5 +207,55 @@
 
 .GraphDeviceDetails {
   width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
 
+.GraphDeviceDetailsTop {
+  display: flex;
+  flex-direction: row;
+}
+
+.DeviceDetailsGraphDataType {
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  margin-right: 20px;
+  padding: 20px;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
+.GraphDeviceDetailsDateSlider {
+  width: 300px;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 20px;
+  margin-right: 20px;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
+.GraphAddDevice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding: 20px;
+  color: black;
+}
+
+.GraphAddDeviceButton {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }

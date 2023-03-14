@@ -97,7 +97,7 @@ function Charts({ id, battery, date, value, title }) {
       labels: times,
       datasets: [
         {
-          label: value,
+          label: value.charAt(0).toUpperCase() + value.slice(1),
           data: values,
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
