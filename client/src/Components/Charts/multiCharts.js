@@ -41,7 +41,7 @@ function MultiCharts({ id, name, battery, date, value }) {
             label: name[i],
             data: response.values,
             tension: 0.1,
-            fill: 'origin',
+            borderWidth: 3,
           })
         }).then(() => setGraphDatasets(result));
       }

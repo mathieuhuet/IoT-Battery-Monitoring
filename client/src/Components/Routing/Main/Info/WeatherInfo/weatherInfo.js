@@ -146,7 +146,7 @@ function weatherInfo({ weather }) {
         {weather.daily.map((daily) => 
           <div className='dailyList' key={daily.dt}>
             <div className='leftDaily'>
-              <div className='weatherTime Day'>
+              <div className='weatherTimeDay'>
                 {format(new Date(daily.dt * 1000), 'dd/MM')}
               </div>
               <div className='weatherLogo'>

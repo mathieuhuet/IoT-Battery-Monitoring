@@ -2,7 +2,7 @@
 
 [HERE'S A VIDEO OF THE BETA VERSION OF THE APP                                        ](https://www.youtube.com/watch?v=XToImgI692Q)
 
-![](client/public/mathieuIcon.png)
+
 
 # IoT Battery Monitoring
 
