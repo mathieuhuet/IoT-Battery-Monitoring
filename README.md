@@ -1,6 +1,6 @@
 # This APP is still in development.
 
-[HERE'S A VIDEO OF THE BETA VERSION OF THE APP                                        ](https://www.youtube.com/watch?v=XToImgI692Q)
+[HERE'S A VIDEO OF THE ALPHA VERSION OF THE APP                                        ](https://www.youtube.com/watch?v=XToImgI692Q)
 
 
 
