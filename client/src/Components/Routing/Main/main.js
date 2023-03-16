@@ -22,7 +22,7 @@ The Main Page of the App
 
 With a Map where you can see all the device being monitored.
 
-Weather Button on the bottom Left to display real time weather forecast
+Weather Button on the bottom-right to display real time weather forecast
 */
 
 

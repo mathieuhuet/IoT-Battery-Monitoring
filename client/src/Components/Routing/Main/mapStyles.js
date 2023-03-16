@@ -1,3 +1,6 @@
+//Styling sheet for the map
+
+
 let styles = [
     {
         "featureType": "all",

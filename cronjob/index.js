@@ -1,4 +1,11 @@
-//File to run on cronjob every 15min to collect data for BatteryMonitoring
+/*
+File to run on cronjob every 10min to collect data for monitoring the batteries performance
+
+Data collected here is use for the graphs on the app
+*/
+
+
+
 const Devices = require('./Models/device');
 const getIndividualDeviceDatabase = require('./Models/individualDeviceData');
 const fetch = require('node-fetch');

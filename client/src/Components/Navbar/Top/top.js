@@ -6,6 +6,12 @@ import { VscGraphLine } from "react-icons/vsc";
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/*
+The Four buttons to the top-left of the screen
+*/
+
+
+
 function Top({ isAuthenticated }) {
   if (isAuthenticated) {
     return (

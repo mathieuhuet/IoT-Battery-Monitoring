@@ -1,6 +1,8 @@
 import './Error404.css';
 
-
+/*
+Error page, in normal use you should never see this page.
+*/
 
 function Error404() {
   return (

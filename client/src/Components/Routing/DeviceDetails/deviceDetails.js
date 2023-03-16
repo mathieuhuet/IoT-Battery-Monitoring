@@ -15,6 +15,27 @@ import PMV from '../../../Assets/pmvicon.png'
 import MultiCharts from '../../Charts/multiCharts';
 
 
+  /*
+  Single device details page.
+  There's 3 tab. 
+  Graph
+  LiveData
+  More
+
+  Graph let you see a graph of past data of the device so you can monitor the performance.
+  You can add other devices to the graph to compare the performance between them
+
+  LiveData fetch the livedata of the device.
+
+  More. you can update the values (ip port name ect) of the devices
+  View who created the device and some live data
+  You can also delete the device.
+  */
+
+
+
+
+
 function DeviceDetails() {
   const { prev, id } = useParams();
   const [ device, setDevice ] = useState([]);
@@ -270,12 +291,7 @@ function DeviceDetails() {
 
 
 
-  /*
-  Single device detail page.
-  You can update the values (ip port name ect) of the devices
-  View who created the device and some live data
-  You can also delete the device.
-  */
+
 
   function MoreInfoDevice () {
     return (

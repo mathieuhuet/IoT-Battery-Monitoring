@@ -18,10 +18,10 @@ import { PMVService } from '../../Services/pmvService';
 import { useEffect, useState } from 'react';
 
 /*
-This is where I currently test out Charts to eventually show battery data charts of previous day.
+This is for multi-devices charts, when in DeviceDetails this chart is rendered and you can add other devices to the charts
 */
 
-
+// id & name are arrays[]
 
 function MultiCharts({ id, name, battery, date, value }) {
 

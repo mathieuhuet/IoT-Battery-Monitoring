@@ -5,6 +5,9 @@ import auth from './Utilities/auth';
 import Navbar from './Components/Navbar/navbar';
 import Routing from './Components/Routing/routing';
 
+
+
+
 function App() {
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);

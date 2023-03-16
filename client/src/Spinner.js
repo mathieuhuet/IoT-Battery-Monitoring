@@ -1,7 +1,7 @@
 import './Spinner.css';
 
 /*
-Loading Component
+Loading Page Component
 */
 
 function Spinner() {

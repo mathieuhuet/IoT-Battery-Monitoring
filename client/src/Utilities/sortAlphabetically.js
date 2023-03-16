@@ -1,3 +1,8 @@
+
+/*
+Sort alphabetically all the devices provided
+*/
+
 export function sortByName (list) {
   return list.sort((a, b) => {
     const nameA = a.name.toUpperCase();

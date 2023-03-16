@@ -9,6 +9,11 @@ import AddDevice from './AddDevice/addDevice'
 import DeviceDetails from './DeviceDetails/deviceDetails';
 import Monitoring from './Monitoring/monitoring';
 
+/*
+Routing to go between the different component
+*/
+
+
 const Routing = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
   useEffect(() => {

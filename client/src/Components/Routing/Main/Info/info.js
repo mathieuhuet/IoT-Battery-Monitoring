@@ -4,6 +4,12 @@ import WeatherButtonComponent from './WeatherButtonComponent/weatherButtonCompon
 import { useState, useEffect } from 'react';
 import { WeatherService } from '../../../../Services/weatherApi';
 
+
+/*
+Where the app gather the weather information and displays it on the screen on click (Yes info is a bad name... im very sorry)
+*/
+
+
 function Info({ location }) {
 
   const [weather, setWeather] = useState({

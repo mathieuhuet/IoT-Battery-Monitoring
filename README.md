@@ -23,9 +23,10 @@ You can compare your equipments between each other to test performance.
 ## Getting Started
 
 To install the required dependencies, you're gonna run `npm install` in all three folders of this project
-`/server`
-`/client`
-`/cronjob`
+- `/server`
+- `/client`
+- `/cronjob`
+
 
 For this app to work properly you need to add cronjobs to your ubuntu server.
 - open a terminal and type `crontab -e`

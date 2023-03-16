@@ -2,6 +2,8 @@ const URL = 'http://10.8.0.11:3030/pmv';
 
 /*
 Get Live data for PMV device.
+
+Get Past data for PMV device (for the graph)
 */
 
 

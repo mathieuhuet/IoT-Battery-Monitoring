@@ -17,7 +17,7 @@ import { PMVService } from '../../Services/pmvService';
 import { useEffect, useState } from 'react';
 
 /*
-This is where I currently test out Charts to eventually show battery data charts of previous day.
+This is for single device charts. When navigating all the devices via the charts tab.
 */
 
 

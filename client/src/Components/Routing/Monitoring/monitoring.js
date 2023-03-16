@@ -7,9 +7,7 @@ import { sortByName } from '../../../Utilities/sortAlphabetically';
 import { DeviceService } from '../../../Services/deviceServiceApi';
 
 /*
-No Settings...
-
-This is where I currently test out Charts to eventually show battery data charts of previous day.
+All the devices are listed, each with a graph showing the performance of the device.
 */
 
 
