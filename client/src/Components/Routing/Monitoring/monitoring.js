@@ -64,7 +64,7 @@ function Monitoring() {
               <RadioGroup
                 row
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue={deviceType}
+                value={deviceType}
                 name="radio-buttons-group"
                 onChange={handleChangeDeviceType}
               >
@@ -79,7 +79,7 @@ function Monitoring() {
             <br />
             <Slider
               aria-label="Show data from how many days ago"
-              defaultValue={dataTime}
+              value={dataTime}
               valueLabelDisplay="auto"
               step={1}
               onChange={handleChangeDataTime}

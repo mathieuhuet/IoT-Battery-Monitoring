@@ -115,15 +115,16 @@
 
 .DeviceDetailsInfo {
   border-radius: 15px;
+  color: black;
   border: 2px solid black;
   box-shadow: 4px 4px black;
   padding: 30px;
   margin: 40px;
-  background: #33883f;
-  background: -webkit-linear-gradient(#33883f, #2f7c33);
-  background: -o-linear-gradient(#33883f, #2f7c33);
-  background: -moz-linear-gradient(#33883f, #2f7c33);
-  background: linear-gradient(#33883f, #2f7c33);
+  background: #bcffc5;
+  background: -webkit-linear-gradient(#bcffc5, #cfffd2);
+  background: -o-linear-gradient(#bcffc5, #cfffd2);
+  background: -moz-linear-gradient(#bcffc5, #cfffd2);
+  background: linear-gradient(#bcffc5, #cfffd2);
 }
 
 .DeviceDetailsInfoData {
@@ -146,11 +147,11 @@
   padding: 30px;
   margin: 40px;
   height: 25vh;
-  background: #33883f;
-  background: -webkit-linear-gradient(#33883f, #2f7c33);
-  background: -o-linear-gradient(#33883f, #2f7c33);
-  background: -moz-linear-gradient(#33883f, #2f7c33);
-  background: linear-gradient(#33883f, #2f7c33);
+  background: #53995d;
+  background: -webkit-linear-gradient(#53995d, #aae0ae);
+  background: -o-linear-gradient(#53995d, #aae0ae);
+  background: -moz-linear-gradient(#53995d, #aae0ae);
+  background: linear-gradient(#53995d, #aae0ae);
 }
 
 .DeleteDevice {
@@ -258,4 +259,50 @@
   font-size: 20px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.UpdateEMC {
+  color: black;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  border-radius: 25px;
+  margin: 5vh;
+  width: 40vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #53995d;
+  background: -webkit-linear-gradient(#53995d, #aae0ae);
+  background: -o-linear-gradient(#53995d, #aae0ae);
+  background: -moz-linear-gradient(#53995d, #aae0ae);
+  background: linear-gradient(#53995d, #aae0ae);
+}
+
+.UpdateEMCForm {
+  height: 60vh;
+}
+
+.UpdatePMV {
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  border-radius: 25px;
+  margin: 5vh;
+  width: 40vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #53995d;
+  background: -webkit-linear-gradient(#53995d, #aae0ae);
+  background: -o-linear-gradient(#53995d, #aae0ae);
+  background: -moz-linear-gradient(#53995d, #aae0ae);
+  background: linear-gradient(#53995d, #aae0ae);
+}
+
+.UpdatePMVForm {
+  height: 60vh;
 }

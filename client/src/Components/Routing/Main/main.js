@@ -15,6 +15,7 @@ import Battery2 from '../../../Assets/battery2.png'
 import Battery3 from '../../../Assets/battery3.png'
 import Battery4 from '../../../Assets/battery4.png'
 import PMV from '../../../Assets/pmvicon.png'
+import Selected from '../../../Assets/selected.png'
 import mapStyles from './mapStyles';
 
 /*
@@ -128,7 +129,7 @@ function Main() {
     }, []);
 
         //DeviceInfo ([ID , BATTERYTYPE, NAME])
-    const [deviceInfo, setDeviceInfo] = useState([0, '', '']);
+    const [deviceInfo, setDeviceInfo] = useState([0, '', '', 0, 0]);
     function DeviceInfo () {
       if (!deviceInfo[0]) {
         return
@@ -139,6 +140,11 @@ function Main() {
               <div className='DeviceNameInfo'>
                 {deviceInfo[2]}
               </div>
+              <MarkerF 
+                position={{lat: deviceInfo[3], lng: deviceInfo[4]}} 
+                icon={Selected} 
+                onClick={() => setDeviceInfo([0, '', '', 0, 0])}
+              />
               <PMVLiveData
                 id={deviceInfo[0]}
               />
@@ -158,6 +164,11 @@ function Main() {
               <div className='DeviceNameInfo'>
                 {deviceInfo[2]}
               </div>
+              <MarkerF 
+                position={{lat: deviceInfo[3], lng: deviceInfo[4]}} 
+                icon={Selected} 
+                onClick={() => setDeviceInfo([0, '', '', 0, 0])}
+              />
               <EMCLiveData
                 id={deviceInfo[0]}
               />
@@ -207,7 +218,7 @@ function Main() {
               <MarkerF 
                 position={{lat: device.lat, lng: device.lng}} 
                 icon={device.icon === 'pmv' ? PMV : device.icon === 1 ? Battery1 : device.icon === 2 ? Battery2 : device.icon === 3 ? Battery3 : device.icon === 4 ? Battery4 : Battery0} 
-                onClick={() => setDeviceInfo([device.id, device.battery, device.name])}
+                onClick={() => setDeviceInfo([device.id, device.battery, device.name, device.lat, device.lng])}
               />
             </div> 
           )}

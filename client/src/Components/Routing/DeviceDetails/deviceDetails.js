@@ -166,7 +166,7 @@ function DeviceDetails() {
             <br />
             <Slider
               aria-label="Show data from how many days ago"
-              defaultValue={dataTime}
+              value={dataTime}
               valueLabelDisplay="auto"
               step={1}
               onChange={handleChangeDataTime}
@@ -458,11 +458,11 @@ function DeviceDetails() {
       }
   
       return (
-        <div className="AddPMV">
+        <div className="UpdatePMV">
         <br />
         <h3>Update PMV Device</h3>
         <br />
-        <form className='AddPMVForm' onSubmit={updatePMV}>
+        <form className='UpdatePMVForm' onSubmit={updatePMV}>
           <div className="formTop">
             <label>
               Name to identify PMV
@@ -640,11 +640,11 @@ function DeviceDetails() {
       }
   
       return (
-        <div className="AddEMC">
+        <div className="UpdateEMC">
         <br />
         <h3>Update EMC Device</h3>
         <br />
-        <form className='AddEMCForm' onSubmit={updateEMC}>
+        <form className='UpdateEMCForm' onSubmit={updateEMC}>
           <div className="formTop">
             <label>
               Name to identify EMC
