@@ -1,6 +1,6 @@
 # This APP is still in development.
 
-[HERE'S A VIDEO OF THE BETA VERSION OF THE APP](https://youtu.be/s5RYPeURV8w)
+[HERE'S A VIDEO DEMONSTRATION OF THE APP](https://youtu.be/s5RYPeURV8w)
 
 
 
@@ -8,11 +8,11 @@
 
 This is an app that monitors the battery data of two IoT devices.
 
-This variable display :
+This variable display (called PMV) :
 
 ![](client/public/pmv.jpg)
 
-And this traffic data collector : 
+And this traffic data collector (called EMC) : 
 
 ![](client/public/emc.jpg)
 
@@ -35,8 +35,6 @@ For this app to work properly you need to add cronjobs to your ubuntu server.
 The database and the server must be running for the cronjob to work properly.
 
 Start the server from the `/server` folder with `npx nodemon index.js`
-
-Before starting the client side, verify that the first line in all five files in the `client/src/Services` folder are assigned the right IP address (this is only while this app is in development)
 
 Start the client side with `npm start`
 
