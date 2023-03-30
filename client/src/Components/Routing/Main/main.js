@@ -23,10 +23,8 @@ The Main Page of the App
 
 With a Map where you can see all the device being monitored.
 
-Weather Button on the bottom-right to display real time weather forecast
+Weather Button on the bottom-right to display weather forecast
 */
-
-
 
 function Main() {
 
@@ -128,7 +126,7 @@ function Main() {
       })
     }, []);
 
-        //DeviceInfo ([ID , BATTERYTYPE, NAME])
+    //DeviceInfo ([ID , BATTERYTYPE, NAME, LATITUDE, LONGITUDE])
     const [deviceInfo, setDeviceInfo] = useState([0, '', '', 0, 0]);
     function DeviceInfo () {
       if (!deviceInfo[0]) {
@@ -188,16 +186,6 @@ function Main() {
 
 
 
-    const [mapref, setMapRef] = React.useState(null);
-    const handleOnLoad = map => {
-      setMapRef(map);
-    };
-    const handleCenterChanged = () => {
-      if (mapref) {
-        // const newCenter = mapref.getCenter();
-        //newCenter lat & lng are function, something is wrong...
-      }
-    };
     const defaultCenter = useMemo(() => ({ lat: 45.57, lng: -73.48 }), []);
     return (
       <div className='AppContainer'>
@@ -206,13 +194,8 @@ function Main() {
           center={defaultCenter} 
           options={mapOptions}
           mapContainerClassName="MapContainer" 
-          onLoad={handleOnLoad}
-          onCenterChanged={handleCenterChanged}
         >
-          <Info 
-            // Trying to send location to give weather data depending on map location
-            location={mapref ? mapref.getCenter : defaultCenter}
-          />
+          <Info />
           {devices.map((device) => 
             <div key={device.id}>
               <MarkerF 

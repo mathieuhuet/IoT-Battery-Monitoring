@@ -1,21 +1,22 @@
-const URL = 'http://10.8.0.11:3030/emc';
+const API = process.env.REACT_APP_API_URL
+? process.env.REACT_APP_API_URL + '/emc'
+: 'http://localhost:3030/emc';
+
 
 /*
 Get Live data for EMC device.
-
-Get past data for EMC device (for the graph)
+&
+Get past data for EMC device. (for the graph)
 */
-
 
 export const EMCService = {
 
-  //Get Request
   getLiveData: async (id) => {
     if (!id) {
       return
     }
     try {
-      const liveData = await fetch(`${URL}/${id}`);
+      const liveData = await fetch(`${API}/${id}`);
       const response = await liveData.json();
       if (response.error) {
         throw new Error(response.message);
@@ -25,6 +26,7 @@ export const EMCService = {
       console.log(`Error in getLiveData service function : ${error}`)
     }
   },
+
   getPastData: async (id, date, value) => {
     if (!id || !date || !value) {
       return {
@@ -33,7 +35,7 @@ export const EMCService = {
       }
     } else {
       try {
-        const liveData = await fetch(`${URL}/data/${id}/${date}`);
+        const liveData = await fetch(`${API}/data/${id}/${date}`);
         const response = await liveData.json();
         if (response.error) {
           throw new Error(response.message);

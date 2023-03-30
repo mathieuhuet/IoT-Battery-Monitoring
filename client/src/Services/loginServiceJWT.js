@@ -1,17 +1,16 @@
-const BASE_URL = 'http://10.8.0.11:3030';
+const API = process.env.REACT_APP_API_URL
+? process.env.REACT_APP_API_URL
+: 'http://localhost:3030';
 
 /*
 Login service.
-
 Register, Login, Logout, Profile
 */
-
-
 
 const loginServiceJWT = {};
 
 loginServiceJWT.register = (user) => {
-  return fetch(`${BASE_URL}/register`, {
+  return fetch(`${API}/register`, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',
@@ -23,7 +22,7 @@ loginServiceJWT.register = (user) => {
 };
 
 loginServiceJWT.login = (user) => {
-  return fetch(`${BASE_URL}/login`, {
+  return fetch(`${API}/login`, {
     method: 'POST',
     credentials: 'include',
     mode: 'cors',
@@ -36,7 +35,7 @@ loginServiceJWT.login = (user) => {
 
 loginServiceJWT.profile = async (accessToken) => {
   try {
-    const get = await fetch(`${BASE_URL}/me`, {
+    const get = await fetch(`${API}/me`, {
       method: 'GET',
       credentials: 'include',
       mode: 'cors',

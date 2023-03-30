@@ -1,19 +1,18 @@
-const URL = 'http://10.8.0.11:3030/device';
-
+const API = process.env.REACT_APP_API_URL
+? process.env.REACT_APP_API_URL + '/device'
+: 'http://localhost:3030/device';
 
 /*
 Device Service, get general information for all the devices on the database.
-
 NAME IP PORT ID ect.
 */
-
 
 export const DeviceService = {
 
   //Get Request
   getDevices: async () => {
     try {
-      const devices = await fetch(URL);
+      const devices = await fetch(API);
       const response = await devices.json();
       if (response.error) {
         throw new Error(response.message);
@@ -24,24 +23,24 @@ export const DeviceService = {
     }
   },
 
-    //Get Request
-    getSingleDevice: async (id) => {
-      try {
-        const device = await fetch(`${URL}/${id}`);
-        const response = await device.json();
-        if (response.error) {
-          throw new Error(response.message);
-        }
-        return response.data;
-      } catch (error) {
-        console.log(`Error in getSingleDevice service function : ${error}`);
+  //Get Request
+  getSingleDevice: async (id) => {
+    try {
+      const device = await fetch(`${API}/${id}`);
+      const response = await device.json();
+      if (response.error) {
+        throw new Error(response.message);
       }
-    },
+      return response.data;
+    } catch (error) {
+      console.log(`Error in getSingleDevice service function : ${error}`);
+    }
+  },
 
   //Post Request
   postDevice: async (data) => {
     try {
-      const post = await fetch(URL, {
+      const post = await fetch(API, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -61,7 +60,7 @@ export const DeviceService = {
   //PUT Request aka UPDATE
   updateDevice: async (id, updatedData) => {
     try {
-      const put = await fetch(`${URL}/${id}`, {
+      const put = await fetch(`${API}/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -79,7 +78,7 @@ export const DeviceService = {
   //DELETE Request
   deleteDevice: async (id) => {
     try {
-      const del = await fetch(`${URL}/${id}`, {
+      const del = await fetch(`${API}/${id}`, {
         method: 'DELETE'
       });
       const response = await del.json();

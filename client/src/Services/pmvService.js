@@ -1,11 +1,12 @@
-const URL = 'http://10.8.0.11:3030/pmv';
+const API = process.env.REACT_APP_API_URL
+? process.env.REACT_APP_API_URL + '/pmv'
+: 'http://localhost:3030/pmv';
 
 /*
 Get Live data for PMV device.
 
 Get Past data for PMV device (for the graph)
 */
-
 
 export const PMVService = {
 
@@ -15,7 +16,7 @@ export const PMVService = {
       return
     }
     try {
-      const liveData = await fetch(`${URL}/${id}`);
+      const liveData = await fetch(`${API}/${id}`);
       const response = await liveData.json();
       if (response.error) {
         throw new Error(response.message);
@@ -33,7 +34,7 @@ export const PMVService = {
       }
     } else {
       try {
-        const liveData = await fetch(`${URL}/data/${id}/${date}`);
+        const liveData = await fetch(`${API}/data/${id}/${date}`);
         const response = await liveData.json();
         if (response.error) {
           throw new Error(response.message);
