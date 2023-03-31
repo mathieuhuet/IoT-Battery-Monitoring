@@ -19,6 +19,7 @@ const initialStateLogin = {
 const initialStateRegister = {
   email: '',
   password: '',
+  passwordRepeat: '',
   firstName: '',
   lastName: '',
 };
@@ -70,7 +71,7 @@ const Login = (props) => {
   const handleSubmitRegister = async (e) => {
     // Check the client-session to see how to handle redirects
     e.preventDefault();
-    if (e.target.password !== e.target.passwordRepeat) {
+    if (stateRegister.password !== stateRegister.passwordRepeat) {
       alert("Passwords didn't matched, try again.")
       return;
     }
