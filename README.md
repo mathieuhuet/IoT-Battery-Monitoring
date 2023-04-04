@@ -1,6 +1,6 @@
 # This APP is still in development.
 
-[HERE'S A VIDEO DEMONSTRATION OF THE APP](https://youtu.be/s5RYPeURV8w)
+[Website with more details about the app](http://mathieuhuet.com/battery_monitoring/)
 
 
 
