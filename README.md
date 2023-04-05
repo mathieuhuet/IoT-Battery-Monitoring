@@ -1,9 +1,3 @@
-# This APP is still in development.
-
-[Website with more details about the app](http://mathieuhuet.com/battery_monitoring/)
-
-
-
 # IoT Battery Monitoring
 
 This is an app that monitors the battery data of two IoT devices.
@@ -18,6 +12,8 @@ And this traffic data collector (called EMC) :
 
 You can view the live state of the battery and also keep track of the past data to monitor the batteries behavior.
 You can compare your equipments between each other to test performance.
+
+[Website with more details about the app](http://mathieuhuet.com/battery_monitoring/)
 
 
 ## Getting Started
