@@ -23,7 +23,7 @@ This is for multi-devices charts, when in DeviceDetails this chart is rendered a
 
 // id & name are arrays[]
 
-function MultiCharts({ id, name, battery, date, value }) {
+function MultiCharts({ id, name, battery, date, value, zero }) {
 
   const [ graphDatasets, setGraphDatasets ] = useState([]);
   const [ times, setTimes ] = useState([]);
@@ -36,7 +36,7 @@ function MultiCharts({ id, name, battery, date, value }) {
       for (let i = 0; i < id.length; i++) {
         PMVService.getPastData(id[i], date, value)
         .then((response) => {
-          setTimes(response.time);
+          setTimes(oldTimes => [...oldTimes, response.time]);
           result.push({
             label: name[i],
             data: response.values,
@@ -49,7 +49,7 @@ function MultiCharts({ id, name, battery, date, value }) {
       for (let i = 0; i < id.length; i++) {
         EMCService.getPastData(id[i], date, value)
         .then((response) => {
-          setTimes(response.time);
+          setTimes(oldTimes => [...oldTimes, response.time]);
           result.push({
             label: name[i],
             data: response.values,
@@ -116,7 +116,7 @@ function MultiCharts({ id, name, battery, date, value }) {
     };
   
     const data = {
-      labels: times,
+      labels: times[0],
       datasets: graphDatasets,
     }
     return (

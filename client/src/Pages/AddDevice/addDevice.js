@@ -1,8 +1,8 @@
 import './addDevice.css';
 import { useState } from 'react';
-import { DeviceService } from '../../../Services/deviceServiceApi';
-import loginServiceJWT from '../../../Services/loginServiceJWT';
-import PMV from '../../../Assets/pmvicon.png'
+import { DeviceService } from '../../Services/deviceServiceApi';
+import loginServiceJWT from '../../Services/loginServiceJWT';
+import PMV from '../../Assets/pmvicon.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

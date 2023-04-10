@@ -15,6 +15,7 @@ import { Line } from 'react-chartjs-2';
 import { EMCService } from '../../Services/emcService';
 import { PMVService } from '../../Services/pmvService';
 import { useEffect, useState } from 'react';
+import { filterZero } from '../../Utilities/filterData';
 
 /*
 This is for single device charts. When navigating all the devices via the charts tab.
@@ -22,7 +23,7 @@ This is for single device charts. When navigating all the devices via the charts
 
 
 
-function Charts({ id, battery, date, value, title }) {
+function Charts({ id, battery, date, value, title, zero }) {
 
   const [ values, setValues ] = useState([]);
   const [ times, setTimes ] = useState([]);
@@ -31,17 +32,29 @@ function Charts({ id, battery, date, value, title }) {
     if (battery === 'pmv') {
       PMVService.getPastData(id, date, value)
       .then((response) => {
-        setTimes(response.time);
-        setValues(response.values);
+        if (zero) {
+          setTimes(response.time);
+          setValues(response.values);
+        } else {
+          const data = filterZero(response);
+          setTimes(data.time);
+          setValues(data.values);
+        }
       })
     } else {
       EMCService.getPastData(id, date, value)
       .then((response) => {
-        setTimes(response.time);
-        setValues(response.values);
+        if (zero) {
+          setTimes(response.time);
+          setValues(response.values);
+        } else {
+          const data = filterZero(response);
+          setTimes(data.time);
+          setValues(data.values);
+        }
       })
     }
-  }, [id, date, battery, value]);
+  }, [id, date, battery, value, zero]);
 
   return (
     <div>

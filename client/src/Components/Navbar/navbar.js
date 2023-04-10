@@ -8,15 +8,11 @@ It should always stay on screen.
 */
 
 
-function Navbar({isAuthenticated}) {
+function Navbar() {
   return (
     <div className="Navbar">
-      <Top 
-        isAuthenticated={isAuthenticated}
-      />
-      <Bottom 
-        isAuthenticated={isAuthenticated}
-      />
+      <Top />
+      <Bottom />
     </div>
   );
 }

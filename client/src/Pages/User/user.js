@@ -1,9 +1,8 @@
 import './user.css'
 import React, { useEffect, useState } from 'react';
-import auth from '../../../Utilities/auth';
-import loginServiceJWT from '../../../Services/loginServiceJWT';
+import { useCookies } from "react-cookie";
+import loginServiceJWT from '../../Services/loginServiceJWT';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 const initialState = {
   firstName: '',
@@ -19,22 +18,12 @@ Also the page where you would logout.
 */
 
 
-const User = (props) => {
-
+const User = () => {
+  const [cookies, setCookie] = useCookies(['userToken']);
   //Logout section
-  let navigate = useNavigate();
   const handleClick = () => {
-    removeToken();
-    handleAuth();
-  };
-
-  const removeToken = () => {
     loginServiceJWT.logout('accessToken');
-  };
-
-  const handleAuth = () => {
-    props.setIsAuthenticated(false);
-    auth.logout(() => navigate('/login'));
+    setCookie('userToken', '', {secure: false, path: '/', });
   };
 
   //Profile section
@@ -44,7 +33,7 @@ const User = (props) => {
   const lastName = state.lastName || '';
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = cookies.userToken;
     const getProfile = async (accessToken) => {
       const userInfo = await loginServiceJWT.profile(accessToken);
       if (userInfo) {
@@ -61,7 +50,7 @@ const User = (props) => {
       }
     };
     getProfile(accessToken);
-  }, []);
+  }, [cookies.userToken]);
 
   return (
     <div className='AppContainer'>

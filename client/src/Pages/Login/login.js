@@ -1,8 +1,9 @@
 import './login.css'
 import React, { useState } from 'react';
-import auth from '../../../Utilities/auth';
-import loginServiceJWT from '../../../Services/loginServiceJWT';
-import { useNavigate } from 'react-router-dom';
+// auth
+import { useCookies } from 'react-cookie';
+import loginServiceJWT from '../../Services/loginServiceJWT';
+
 
 /*
 Login Page, where you login when you navigate to the site.
@@ -25,7 +26,7 @@ const initialStateRegister = {
 };
 
 const Login = (props) => {
-  let navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(['userToken']);
   const [stateLogin, setStateLogin] = useState(initialStateLogin);
 
   const handleChangeLogin = (e) => {
@@ -49,8 +50,7 @@ const Login = (props) => {
     } else {
       const accessToken = res.data.accessToken;
       localStorage.setItem('accessToken', accessToken);
-      props.setIsAuthenticated(true);
-      auth.login(() => navigate('/'));
+      setCookie('userToken', accessToken, {secure: false, path: '/', });
     }
   };
 
@@ -86,8 +86,7 @@ const Login = (props) => {
     } else {
       const accessToken = res.data.accessToken;
       localStorage.setItem('accessToken', accessToken);
-      props.setIsAuthenticated(true);
-      auth.login(() => navigate('/'));
+      setCookie('userToken', accessToken, {secure: false, path: '/', });
     }
   };
 

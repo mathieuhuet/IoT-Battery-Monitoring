@@ -246,6 +246,20 @@
   background: linear-gradient(#d0eed4, #b0ceb1);
 }
 
+.GraphDeviceDetailsetZero {
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  padding: 20px;
+  margin-right: 20px;
+  color: black;
+  background: #d0eed4;
+  background: -webkit-linear-gradient(#d0eed4, #b0ceb1);
+  background: -o-linear-gradient(#d0eed4, #b0ceb1);
+  background: -moz-linear-gradient(#d0eed4, #b0ceb1);
+  background: linear-gradient(#d0eed4, #b0ceb1);
+}
+
 .GraphAddDevice {
   display: flex;
   justify-content: center;

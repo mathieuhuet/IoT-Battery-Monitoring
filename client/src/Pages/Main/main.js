@@ -1,21 +1,21 @@
 import './main.css';
-import Spinner from '../../../Spinner'
+import Spinner from '../../Spinner'
 import Info from './Info/info'
 import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api"
-import { DeviceService } from '../../../Services/deviceServiceApi';
-import { EMCService } from '../../../Services/emcService';
-import { PMVService } from '../../../Services/pmvService';
-import EMCLiveData from '../../LiveData/emcLiveData';
-import PMVLiveData from '../../LiveData/pmvLiveData';
-import Battery0 from '../../../Assets/battery0.png'
-import Battery1 from '../../../Assets/battery1.png'
-import Battery2 from '../../../Assets/battery2.png'
-import Battery3 from '../../../Assets/battery3.png'
-import Battery4 from '../../../Assets/battery4.png'
-import PMV from '../../../Assets/pmvicon.png'
-import Selected from '../../../Assets/selected.png'
+import { DeviceService } from '../../Services/deviceServiceApi';
+import { EMCService } from '../../Services/emcService';
+import { PMVService } from '../../Services/pmvService';
+import EMCLiveData from '../../Components/LiveData/emcLiveData';
+import PMVLiveData from '../../Components/LiveData/pmvLiveData';
+import Battery0 from '../../Assets/battery0.png'
+import Battery1 from '../../Assets/battery1.png'
+import Battery2 from '../../Assets/battery2.png'
+import Battery3 from '../../Assets/battery3.png'
+import Battery4 from '../../Assets/battery4.png'
+import PMV from '../../Assets/pmvicon.png'
+import Selected from '../../Assets/selected.png'
 import mapStyles from './mapStyles';
 
 /*

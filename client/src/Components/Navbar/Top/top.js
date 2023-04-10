@@ -12,50 +12,31 @@ The Four buttons to the top-left of the screen
 
 
 
-function Top({ isAuthenticated }) {
-  if (isAuthenticated) {
-    return (
-      <div className="Top">
-        <Link to="/">
-          <div className="Home">
-            <AiOutlineHome />
-          </div>
-        </Link>
-        <Link to="/monitoring">
-          <div className="Monitor">
-            <VscGraphLine />
-          </div>
-        </Link>
-        <Link to="/devices">
-          <div className="Devices">
-            <VscListUnordered />
-          </div>
-        </Link>
-        <Link to="/add">
-          <div className="Add">
-            <BiAddToQueue />
-          </div>
-        </Link>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Top">
+function Top() {
+  return (
+    <div className="Top">
+      <Link to="/">
         <div className="Home">
           <AiOutlineHome />
         </div>
-        <div className="Devices">
-          <VscListUnordered />
-        </div>
-        <div className="Add">
-          <BiAddToQueue />
-        </div>
+      </Link>
+      <Link to="/monitoring">
         <div className="Monitor">
           <VscGraphLine />
         </div>
-      </div>
-    );
-  }
+      </Link>
+      <Link to="/devices">
+        <div className="Devices">
+          <VscListUnordered />
+        </div>
+      </Link>
+      <Link to="/add">
+        <div className="Add">
+          <BiAddToQueue />
+        </div>
+      </Link>
+    </div>
+  );
 }
 
 export default Top;

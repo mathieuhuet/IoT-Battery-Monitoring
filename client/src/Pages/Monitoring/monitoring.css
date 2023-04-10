@@ -35,6 +35,22 @@
   background: linear-gradient(#c9f5cf, #91b192);
 }
 
+.setZero {
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+  align-items: center;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 4px 4px black;
+  color: black;
+  background: #c9f5cf;
+  background: -webkit-linear-gradient(#c9f5cf, #91b192);
+  background: -o-linear-gradient(#c9f5cf, #91b192);
+  background: -moz-linear-gradient(#c9f5cf, #91b192);
+  background: linear-gradient(#c9f5cf, #91b192);
+}
+
 .ChartMonitoring {
   width: 40vw;
   border-radius: 15px;

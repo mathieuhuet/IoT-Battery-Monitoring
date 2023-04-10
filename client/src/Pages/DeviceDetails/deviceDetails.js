@@ -2,17 +2,17 @@ import './deviceDetails.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BsArrowLeftShort } from "react-icons/bs";
-import { Radio, RadioGroup, FormLabel, FormControlLabel, FormControl, Slider, Button, Menu, MenuItem } from '@mui/material';
-import { DeviceService } from '../../../Services/deviceServiceApi';
+import { Radio, RadioGroup, FormLabel, FormControlLabel, FormControl, Slider, Button, Menu, MenuItem, Switch } from '@mui/material';
+import { DeviceService } from '../../Services/deviceServiceApi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import { sortByName } from '../../../Utilities/sortAlphabetically';
-import EMCLiveData from '../../LiveData/emcLiveData';
-import PMVLiveData from '../../LiveData/pmvLiveData';
-import PMV from '../../../Assets/pmvicon.png'
-import MultiCharts from '../../Charts/multiCharts';
+import { sortByName } from '../../Utilities/sortAlphabetically';
+import EMCLiveData from '../../Components/LiveData/emcLiveData';
+import PMVLiveData from '../../Components/LiveData/pmvLiveData';
+import PMV from '../../Assets/pmvicon.png'
+import MultiCharts from '../../Components/Charts/multiCharts';
 
 
   /*
@@ -109,7 +109,7 @@ function DeviceDetails() {
 
 
   function GraphDevice () {
-
+    const [zero, setZero] = useState(true);
     const [ dataType, setDataType ] = useState('voltage');
     const handleChangeDataType = (event) => {
       const { value } = event.target;
@@ -175,6 +175,17 @@ function DeviceDetails() {
               max={7}
             />
           </div>
+          {/* <div className='GraphDeviceDetailsetZero'>
+            <FormControl component="fieldset">
+              <FormControlLabel
+                value={zero}
+                control={<Switch color="primary" />}
+                label="Hide 0's in graph?"
+                labelPlacement="top"
+                onChange={() => setZero(!zero)}
+              />
+            </FormControl>
+          </div> */}
           <MenuAddDevice />
         </div>
         <MultiCharts 
@@ -183,6 +194,7 @@ function DeviceDetails() {
           battery={device.battery}
           date={dataTime}
           value={dataType}
+          zero={zero}
         />
       </div>
     )

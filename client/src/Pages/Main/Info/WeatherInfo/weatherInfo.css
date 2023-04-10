@@ -118,15 +118,14 @@
 
 .weatherTimeDay {
   font-size: 20px;
-  background-color: rgb(69, 138, 150);
   color: rgb(25, 35, 39);
   padding: 3px;
   padding-bottom: 10px;
   padding-top: -10px;
+  margin-top: -10px;
   height: 20px;
   border-radius: 6px;
   font-weight: bold;
-  box-shadow: 1px 1px black;
 }
 
 .Wind {

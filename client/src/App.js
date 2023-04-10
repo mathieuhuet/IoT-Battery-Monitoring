@@ -1,28 +1,27 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import auth from './Utilities/auth';
 import Navbar from './Components/Navbar/navbar';
-import Routing from './Components/Routing/routing';
+// Auth
+import { useCookies } from 'react-cookie';
+// Auth routes
+import SignedInRoute from './Routes/signedInRoute';
+import SignedOutRoute from './Routes/signedOutRoute';
 
 
 
 
 function App() {
-  const initialState = auth.isAuthenticated();
-  const [isAuthenticated, setIsAuthenticated] = useState(initialState);
+  const [cookies, setCookie] = useCookies(['userToken']);
 
   return (
     <div className="App">
       <Router>
-        <Navbar 
-          isAuthenticated={isAuthenticated} 
-
-        />
-        <Routing 
-          setIsAuthenticated={setIsAuthenticated} 
-          isAuthenticated={isAuthenticated}
-        />
+        <Navbar />
+        {cookies.userToken ?           
+          <SignedInRoute/> :
+          <SignedOutRoute/>
+        }
       </Router>
     </div>
   );

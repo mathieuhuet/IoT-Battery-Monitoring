@@ -1,10 +1,10 @@
 import './monitoring.css';
-import { Radio, RadioGroup, FormLabel, FormControlLabel, FormControl, Slider } from '@mui/material';
+import { Radio, RadioGroup, FormLabel, FormControlLabel, FormControl, Slider, Switch } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Charts from '../../Charts/charts';
-import { sortByName } from '../../../Utilities/sortAlphabetically';
-import { DeviceService } from '../../../Services/deviceServiceApi';
+import Charts from '../../Components/Charts/charts';
+import { sortByName } from '../../Utilities/sortAlphabetically';
+import { DeviceService } from '../../Services/deviceServiceApi';
 
 /*
 All the devices are listed, each with a graph showing the performance of the device.
@@ -13,7 +13,7 @@ All the devices are listed, each with a graph showing the performance of the dev
 
 
 function Monitoring() {
-
+  const [zero, setZero] = useState(true);
   const [pmv, setPMV] = useState([]);
   const [emc, setEMC] = useState([]);
   useEffect(() => {
@@ -88,6 +88,17 @@ function Monitoring() {
               max={7}
             />
           </div>
+          <div className='setZero'>
+            <FormControl component="fieldset">
+              <FormControlLabel
+                value={zero}
+                control={<Switch color="primary" />}
+                label="Hide 0's in graph?"
+                labelPlacement="top"
+                onChange={() => setZero(!zero)}
+              />
+            </FormControl>
+          </div>
         </div>
         {deviceType === 'emc' ? <EMCMonitoring /> : <PMVMonitoring />}
       </div>
@@ -155,6 +166,7 @@ function Monitoring() {
                 date={dataTime}
                 value={dataType}
                 title={device.name}
+                zero={zero}
               />
             </div>
           </Link>
@@ -177,6 +189,7 @@ function Monitoring() {
                   date={dataTime}
                   value={dataType}
                   title={device.name}
+                  zero={zero}
                 />
               </div>
             </Link>

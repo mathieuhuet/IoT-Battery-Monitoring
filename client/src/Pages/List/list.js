@@ -1,11 +1,11 @@
 import './list.css';
-import { DeviceService } from '../../../Services/deviceServiceApi';
+import { DeviceService } from '../../Services/deviceServiceApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { sortByName } from '../../../Utilities/sortAlphabetically';
-import EMCLiveData from '../../LiveData/emcLiveData';
-import PMVLiveData from '../../LiveData/pmvLiveData';
-import PMV from '../../../Assets/pmvicon.png';
+import { sortByName } from '../../Utilities/sortAlphabetically';
+import EMCLiveData from '../../Components/LiveData/emcLiveData';
+import PMVLiveData from '../../Components/LiveData/pmvLiveData';
+import PMV from '../../Assets/pmvicon.png';
 
 /*
 List all the devices on screen and fetch the live data of all of them.
