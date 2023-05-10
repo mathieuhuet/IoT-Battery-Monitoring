@@ -11,7 +11,7 @@ And this traffic data collector (called EMC) :
 ![](client/public/emc.jpg)
 
 You can view the live state of the battery and also keep track of the past data to monitor the batteries behavior.
-You can compare your equipments between each other to test performance.
+You can compare your equipments between each other to monitor their performances.
 
 [Website with more details about the app](http://mathieuhuet.com/battery_monitoring/)
 
